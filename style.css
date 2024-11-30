@@ -1,0 +1,254 @@
+/* Metallic Dark Theme */
+body {
+  background-color: #1c1c1e;
+  color: #e0e0e0;
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  background-color: #2c2c2e;
+  border-bottom: 1px solid #444;
+}
+
+.navbar-brand,
+.nav-link {
+  color: #e0e0e0 !important;
+  padding-left: 10px;
+}
+
+.navbar-toggler-icon {
+  filter: brightness(0.8);
+}
+
+.navbar-nav .nav-item.active .nav-link {
+  color: #f1f1f1 !important;
+  font-weight: bold;
+}
+
+.navbar-nav .nav-link.active {
+  font-weight: bold;
+  color: #ffffff;
+}
+
+/* Header */
+.jumbotron {
+  background-color: #323233;
+  color: #f1f1f1;
+  border-bottom: 1px solid #444;
+  padding: 4rem 2rem; /* Increased top padding */
+  margin-top: 56px; /* Offset the height of the navbar */
+}
+
+@media (max-width: 768px) {
+  .jumbotron {
+    padding: 4rem 2rem;
+    margin-top: 56px;
+  }
+}
+
+.main-heading {
+  font-size: 3rem; /* Default large size */
+  font-weight: bold;
+}
+
+.header-subtext {
+  font-size: 1.2rem;
+  color: #cccccc;
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .main-heading {
+    font-size: 2rem; /* Smaller font size on mobile */
+  }
+
+  .header-subtext {
+    font-size: 1rem;
+  }
+}
+
+.intro-section {
+  display: flex;
+  align-items: center;
+  padding-bottom: 5%;
+}
+
+.profile-pic {
+  width: 300px;
+  height: 400px;
+  margin-right: 20px; /* Adds space between the image and the text */
+  border-radius: 10%; /* Makes the picture circular */
+}
+
+#contact {
+  text-align: center;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px; /* Space between GitHub and LinkedIn links */
+  margin-top: 20px;
+}
+
+.contact-pic-link {
+  width: 32px;
+  height: 32px;
+  vertical-align: middle;
+  margin-right: 10px; /* Space between icon and text */
+}
+
+h1.display-4 {
+  color: #f1f1f1;
+  font-weight: bold;
+}
+
+p.lead {
+  color: #cccccc;
+}
+
+/* Section Styling */
+section {
+  padding: 50px 0;
+}
+
+section h2 {
+  color: #f1f1f1;
+  text-align: center;
+  margin-bottom: 30px;
+}
+section {
+  border-bottom: 1px solid #555; /* Adjust color for subtlety */
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+section:last-of-type {
+  border-bottom: none; /* Removes the line from the last section */
+}
+
+section ul {
+  color: #cccccc;
+}
+
+section ul li {
+  padding: 5px 0;
+}
+
+/* Styling for the contact section */
+#contact a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 18px;
+}
+
+#contact a:hover {
+  color: #cccccc; /* Subtle hover effect only for links in this section */
+}
+
+a {
+  color: #0077cc; /* Example of a nice blue shade */
+}
+
+a:hover {
+  color: #005fa3; /* Darker shade for hover effect */
+}
+
+/* Subtle metallic white accents */
+h6 {
+  color: #e8e8e8;
+}
+
+/* Footer */
+footer {
+  background-color: #2c2c2e;
+  padding: 20px 0;
+  color: #ffffff;
+  text-align: center;
+  border-top: 1px solid #444;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* Button styling */
+.btn-primary {
+  background-color: #3a3a3c;
+  border-color: #5a5a5c;
+}
+
+.btn-primary:hover {
+  background-color: #5a5a5c;
+  border-color: #7a7a7c;
+}
+
+.intro-section {
+  display: flex;
+  align-items: center;
+  padding-bottom: 5%;
+}
+
+.profile-pic {
+  width: 300px;
+  height: 400px;
+  margin-right: 20px;
+  border-radius: 10%;
+}
+
+@media (max-width: 768px) {
+  .intro-section {
+    flex-direction: column;
+    align-items: center; /* Ensures the content is centered on mobile */
+  }
+
+  .profile-pic {
+    margin-right: 0;
+    margin-bottom: 20px; /* Adds space between the picture and the text on mobile */
+  }
+}
+
+/* Accordion Styling for Dark Metallic Theme */
+.custom-accordion-button {
+  background-color: #2c2c2e;
+  color: #e0e0e0;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  border: none; /* Remove border */
+  box-shadow: none; /* Remove the blue outline */
+}
+
+.custom-accordion-button:hover,
+.custom-accordion-button:not(.collapsed) {
+  background-color: #3a3a3c;
+  color: #ffffff;
+  border: none;
+}
+
+.custom-accordion-button:focus {
+  outline: none; /* Remove focus outline */
+  box-shadow: none; /* Remove focus shadow */
+}
+
+.custom-accordion-body {
+  background-color: #1c1c1e;
+  color: #cccccc;
+  padding: 1.5rem;
+  border-top: 1px solid #444;
+}
+
+.accordion-item {
+  border: none; /* Remove default border */
+  margin-bottom: 0.5rem; /* Space between items */
+}
+
+.accordion-header {
+  margin-bottom: 0.5rem;
+}
+
+h2.accordion-header {
+  font-weight: 500;
+}
