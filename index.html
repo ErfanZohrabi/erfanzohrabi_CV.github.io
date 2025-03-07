@@ -3,17 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Erfan Zohrabi</title>
-  <a class="navbar-brand" href="#">Erfan Zohrabi</a>
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
-
+    <title>Erfan Zohrabi | Bioinformatics & AI Research</title>
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="Erfan Zohrabi - Bioinformatics researcher specializing in AI applications in Biology & Computational Biology Research">
+    <meta name="keywords" content="bioinformatics, machine learning, AI, computational biology, deep learning">
+    <meta name="author" content="Erfan Zohrabi">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Libraries CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6/dist/tippy.css">
+    
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
   </head>
   <body
     data-bs-spy="scroll"
@@ -21,495 +31,483 @@
     data-bs-offset="50"
     tabindex="0"
   >
+    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
-      <a
-        style="padding-right: 10px; border-right: #cccccc solid 1px"
-        class="navbar-brand"
-        href="#"
-        >Erfan Zohrabi</a
-      >
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="#about">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#resume">Education</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#experience">Experience</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#contact">Contact</a>
-          </li>
-        </ul>
+      <div class="container">
+        <a class="navbar-brand" href="#">EZ</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#profile">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#resume">Education</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#experience">Experience</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
+
+    <!-- Hero Section -->
     <header class="jumbotron text-center">
-      <h1 class="main-heading">Hi, I'm Erfan Zohrabi</h1>
-      <p class="header-subtext">
-        Bioinformatics Enthusiast | Passionate About AI applications in Biology &
-        Computational Biology Research
-      </p>
+      <div class="container">
+        <h1 class="main-heading fade-in">Hi, I'm Erfan Zohrabi</h1>
+        <p class="header-subtext fade-in">
+          Bioinformatics Enthusiast | Passionate About AI applications and deep learning in Biology &
+          Computational Biology Research
+        </p>
+      </div>
     </header>
 
     <!-- About Section -->
-    <section id="about" class="container">
+    <section id="profile" class="container fade-in">
       <h2>About Me</h2>
       <div class="intro-section">
-        <img
-          src="assets\cropped.jpg"
-          alt="Profile Picture"
-          class="profile-pic"
-        />
-        <p>
-          I’m a Bioinformatics student at
-          <a
-            href="https://corsi.unibo.it/2cycle/Bioinformatics"
-            target="_blank"
-            >University of Bologna</a
-          >, with a deep passion for <strong> Deep learning in bioinformatics</strong> and
-          <strong> Machine Learning</strong> . My journey is fueled by a relentless curiosity to decode the intricate patterns
-           and algorithms underlying biological data, combining mathematical reasoning with computational prowess to push the 
-           boundaries of bioinformatics and deep learning.
-          <br />
-          <br />
-          Recently, I’ve had the opportunity to work on exciting research
-          projects. you can see my research experience
-          <a href="#experience">here</a>.
-          <br />
-          <br />
-          <a href="assets\resume.pdf">Here</a> you can download a concise
-          version of my academic resume.
-        </p>
+        <div class="profile-image-container">
+          <img
+            src="assets/cropped.jpg"
+            alt="Profile Picture"
+            class="profile-pic"
+          />
+        </div>
+        <div class="about-content">
+          <p>
+            I'm a Bioinformatics student at
+            <a
+              href="https://corsi.unibo.it/2cycle/Bioinformatics"
+              target="_blank"
+              >University of Bologna</a
+            >, with a deep passion for <strong>Bioinformatics Enthusiast | Passionate About AI and deep learning in Biology & Computational Biology Research</strong>. My journey is fueled by a relentless curiosity to decode the intricate patterns
+            and algorithms underlying biological data, combining mathematical reasoning with computational prowess to push the 
+            boundaries of bioinformatics and deep learning.
+          </p>
+          <p>
+            Recently, I've had the opportunity to work on exciting research
+            projects. You can see my research experience
+            <a href="#experience">here</a>.
+          </p>
+          <p>
+            <a href="assets/resume.pdf" class="btn btn-primary">Download Resume</a>
+          </p>
+        </div>
       </div>
-      <h5>Research Interests</h5>
-      <ul>
-        <li>Application of Machine Learning in Bioinformatics</li>
-        <p>
-          I am passionate about leveraging machine learning, particularly deep learning,
-          to address complex problems in bioinformatics and computational biology.
-          <br />
-          My focus lies in developing algorithms to analyze and interpret biological data
-          with high precision, contributing to advancements in genomics and personalized medicine.
-        </p>
 
-        <li>DNA Classification and Genomic Analysis</li>
-        <p>
-          The classification and analysis of DNA sequences are central to my research.
-          I aim to design innovative machine learning models that can decode
-          patterns in genomic data, enhancing our understanding of genetic variations
-          and their implications for health and disease.
-        </p>
+      <div class="research-interests fade-in">
+        <h3>Research Interests</h3>
+        <div class="row">
+          <div class="col-md-6 mb-4">
+            <div class="bg-dark">
+              <h4>Machine Learning in Bioinformatics</h4>
+              <p>
+                I am passionate about leveraging machine learning, particularly deep learning,
+                to address complex problems in bioinformatics and computational biology.
+                My focus lies in developing algorithms to analyze and interpret biological data
+                with high precision, contributing to advancements in genomics and personalized medicine.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 mb-4">
+            <div class="bg-dark">
+              <h4>DNA Classification & Genomic Analysis</h4>
+              <p>
+                The classification and analysis of DNA sequences are central to my research.
+                I aim to design innovative machine learning models that can decode
+                patterns in genomic data, enhancing our understanding of genetic variations
+                and their implications for health and disease.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 mb-4">
+            <div class="bg-dark">
+              <h4>PLM and AlphaFold</h4>
+              <p>
+                PLM (Protein Language Models) and AlphaFold represent cutting-edge advancements in protein structure prediction.
+                PLM utilizes deep learning techniques to understand protein sequences and their functions, while AlphaFold
+                leverages neural networks to predict protein folding with remarkable accuracy. My interest lies in exploring
+                how these technologies can be integrated into bioinformatics workflows to enhance our understanding of protein
+                interactions and their roles in biological processes.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 mb-4">
+            <div class="bg-dark">
+              <h4>Integration of AI and CRISPR Technologies</h4>
+              <p>
+                Combining AI with CRISPR gene-editing technology is accelerating advancements in medicine and agriculture. 
+                AI aids in identifying optimal gene-editing targets, improving precision, and reducing off-target effects. 
+                This synergy enhances the development of therapies for genetic diseases and the creation of resilient, 
+                high-yield crops.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 mb-4">
+            <div class="bg-dark">
+              <h4>High-Dimensional Data Analysis</h4>
+              <p>
+                Advancements in spatial omics and single-cell analysis are revolutionizing computational biology.
+                By applying deep learning to these high-resolution datasets, I aim to uncover patterns in cellular processes 
+                and disease mechanisms.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 mb-4">
+            <div class="bg-dark">
+              <h4>Large Language Models in Genomics</h4>
+              <p>
+                Exploring the application of LLMs in genomic data processing fascinates me.
+                These models offer potential in areas like DNA sequence annotation, functional prediction,
+                and uncovering latent patterns in large-scale biological datasets.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-        <li>Large Language Models (LLMs) in Genomics</li>
-        <p>
-          Exploring the application of LLMs in genomic data processing fascinates me.
-          <br />
-          These models offer potential in areas like DNA sequence annotation, functional prediction,
-          and uncovering latent patterns in large-scale biological datasets.
-        </p>
+      <!-- Additional Interests -->
+      <div class="additional-interests fade-in">
+        <h3>Additional Research Interests</h3>
+        <div class="bg-dark">
+          <ul>
+            <li>Deep reinforcement learning-based pairwise DNA sequence alignment</li>
+            <li>Graph Neural Networks in Computational Biology</li>
+            <li>Generative models for protein sequence modeling</li>
+            <li>Computational Neuroscience</li>
+            <li>Biomedical Text Mining for Drug Discovery</li>
+          </ul>
+        </div>
+      </div>
 
-        <li>High-Dimensional Data Analysis</li>
-        <p>
-          Advancements in spatial omics and single-cell analysis are revolutionizing computational biology.
-          By applying deep learning to these high-resolution datasets, I aim to uncover patterns in cellular processes 
-          and disease mechanisms, paving the way for breakthroughs in understanding cellular heterogeneity and therapeutic innovations.
-        </p>
-
-        <li>Generative Deep Learning</li>
-        <p>
-          Learning complex, high-dimensional data distributions is a useful and
-          fundumetally important task in ML. This is a really exciting and
-          beautiful area.
-        </p>
-      </ul>
-
-      Additionally, I find the following topics interesting:
-      <ul>
-        <li>Deep reinforcement learning-based pairwise DNA sequence alignment</li>
-        <li>Graph Neural Networks in Computational Biology</li>
-        <li>Generative models for protein sequence modeling</li>
-        <li>Computational Neuroscience</li>
-        <li>Biomedical Text Mining for Drug Discovery using Natural Language Processing and Deep Learning</li>
-      </ul>
-
-      <ul class="container" style="list-style-type: square">
-        <li>
-          <!-- Collapsible Activities Section -->
-          <button
-            class="btn btn-primary"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#activities"
-            aria-expanded="false"
-            aria-controls="activities"
-          >
-            Recent Activities
-          </button>
-
-          <div class="collapse" id="activities">
-            <ul>
-              <li>
-                Bioinformatics ML approach for KCNB1 Variants  (<a
-                  href="https://github.com/ErfanZohrabi/Bioinformatics-ML-Model-for-KCNB1-Variants"
-                  >GitHub Repo</a
-                >)
-              </li>
-              <li>
-                Predictive Modeling of Signal Peptides in Protein Sequences   (<a
-                  href="https://github.com/ErfanZohrabi/Predictive-Modeling-of-Signal-Peptides-in-Protein-Sequences"
-                  >GitHub Repo</a
-                >)
+      <!-- Recent Activities -->
+      <div class="recent-activities fade-in">
+        <h3>Recent Activities</h3>
+        <div class="row">
+          <div class="col-md-6 mb-4">
+            <div class="bg-dark">
+              <h4>Research Projects</h4>
+              <ul>
                 <li>
-                  Evaluate DNA methylation based on infinium technology of Illumina array chip
-                  (<a
-                    href="https://github.com/ErfanZohrabi/Evaluate-DNA-methylation"
-                    >GitHub Repo</a
-                  >)
+                  <a href="https://github.com/ErfanZohrabi/Bioinformatics-ML-Model-for-KCNB1-Variants">
+                    Bioinformatics ML approach for KCNB1 Variants
+                  </a>
                 </li>
                 <li>
-                  DNA Sequence Classification for Predicting Breast Cancer
-                  (<a
-                    href="https://github.com/ErfanZohrabi/DNA-Sequence-Classification-for-Predicting-Breast-Cancer"
-                    >GitHub Repo</a
-                  >)
+                  <a href="https://github.com/ErfanZohrabi/Predictive-Modeling-of-Signal-Peptides-in-Protein-Sequences">
+                    Predictive Modeling of Signal Peptides
+                  </a>
                 </li>
-
-              <li>
-                Expertise in leveraging machine learning for biomedical database analysis and multi-omics data integration.
-              </li>
-              <li>Applied transformers to sequence analysis, functional annotation, and genomic data classification.</li>
-
-              <li>Developed robust machine learning models for single-cell RNA-seq and ATAC-seq analysis.</li>
-              <li>
-                Researched graph neural networks for protein-protein interaction networks and metabolic pathways.
-              </li>
-              <li>
-                Attended Neuromatch Academy's
-                <a
-                  href="https://deeplearning.neuromatch.io/tutorials/intro.html"
-                  >Deep Learning</a
-                >
-                Course (<a
-                  href="https://www.coursera.org/specializations/machine-learning-introduction"
-                  >Certificate</a
-                >)
-              </li>
-              <li>
-                Studied
-                <a
-                  href="https://www.youtube.com/playlist?list=PLoROMvodv4rPOWA-omMM6STXaWW4FvJT8"
-                  >CS236</a
-                >: Deep Generative Models, Stanford
-              </li>
-              <li>
-                Studied
-                <a
-                  href="https://www.youtube.com/playlist?list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn"
-                  >CS224W</a
-                >: Machine Learning with Graphs, Stanford
-              </li>
-              <li>
-                Implemented various machine learning models and techniques, Machine Learning Course(<a
-                  href="https://github.com/SharifiZarchi/Introduction_to_Machine_Learning"
-                  >GitHub</a
-                >)
-              </li>
-            </ul>
+                <li>
+                  <a href="https://github.com/ErfanZohrabi/DNA-Sequence-Classification-for-Predicting-Breast-Cancer">
+                    DNA Sequence Classification for Cancer Prediction
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
-        </li>
-
-        <li>
-          <!-- Collapsible Skills Section -->
-          <button
-            class="btn btn-primary mt-3"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#skills"
-            aria-expanded="false"
-            aria-controls="skills"
-          >
-            Skills
-          </button>
-          <div class="collapse" id="skills">
-            <ul>
-              <li>
-                Theory: Deep Learning, Transformers in Genomics, Generative Models, Statistical Learning, and Bioinformatics Algorithms. I have a solid understanding of stochastic processes, optimization techniques, and high-dimensional data analysis.
-              </li>
-              <li>
-                Programming Languages: Python, R, JavaScript, PHP, and SQL. Experienced in scripting and automation for bioinformatics tasks.
-              </li>
-              <li>
-                Frameworks and Libraries: TensorFlow, PyTorch, Biopython, NumPy, Pandas, Scikit-learn, and Matplotlib for computational biology and data visualization.
-              </li>
-              <li>
-                Tools: Jupyter Notebook, PyCharm, Git, MEGA11, EndNote, and Adobe Photoshop. Skilled in cloud-based tools like Google Cloud and AWS for large-scale bioinformatics analysis.
-              </li>
-              <li>
-                Techniques: Sequence Alignment, DNA Classification, Single-Cell Data Analysis, Domain Adaptation, Graph Neural Networks, and Bayesian Modeling for biological datasets.
-              </li>
-              <li>
-                Methodologies: Agile development, Data-Driven Research, Multi-Omics Integration, and Large Language Models (LLMs) for genomic annotation and analysis.
-              </li>
-            </ul>
+          <div class="col-md-6 mb-4">
+            <div class="bg-dark">
+              <h4>Academic Achievements</h4>
+              <ul>
+                <li>Completed Neuromatch Academy's Deep Learning Course</li>
+                <li>Studied CS236: Deep Generative Models at Stanford</li>
+                <li>Studied CS224W: Machine Learning with Graphs at Stanford</li>
+              </ul>
+            </div>
           </div>
-        </li>
-      </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="container fade-in">
+      <h2>Portfolio</h2>
+      <p>Explore my projects and research work.</p>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img src="assets/project1.jpg" class="card-img-top" alt="Project 1" style="height: 200px; object-fit: cover;">
+            <div class="card-body">
+              <h5 class="card-title">
+                <a href="https://github.com/ErfanZohrabi/Evaluate-DNA-methylation" target="_blank">Project Title 1</a>
+              </h5>
+              <p class="card-text">Brief description of the project.</p>
+              <a href="https://github.com/ErfanZohrabi/Evaluate-DNA-methylation" class="btn btn-primary" target="_blank">View Project</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img src="assets/project2.jpg" class="card-img-top" alt="Project 2" style="height: 200px; object-fit: cover;">
+            <div class="card-body">
+              <h5 class="card-title">
+                <a href="https://github.com/ErfanZohrabi/lab-of-bioinformatics-project" target="_blank">Project Title 2</a>
+              </h5>
+              <p class="card-text">Brief description of the project.</p>
+              <a href="https://github.com/ErfanZohrabi/lab-of-bioinformatics-project" class="btn btn-primary" target="_blank">View Project</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img src="assets/project3.jpg" class="card-img-top" alt="Project 3" style="height: 200px; object-fit: cover;">
+            <div class="card-body">
+              <h5 class="card-title">
+                <a href="https://github.com/ErfanZohrabi/DNA-Sequence-Classification-for-Predicting-Breast-Cancer" target="_blank">Project Title 3</a>
+              </h5>
+              <p class="card-text">Brief description of the project.</p>
+              <a href="https://github.com/ErfanZohrabi/DNA-Sequence-Classification-for-Predicting-Breast-Cancer" class="btn btn-primary" target="_blank">View Project</a>
+            </div>
+          </div>
+        </div>
+        <!-- Add more project cards as needed -->
+      </div>
     </section>
 
     <!-- Resume Section -->
     <section id="resume" class="container">
       <h2>Education</h2>
       
-      <p>
-        <strong>M.Sc. in Bioinformatics</strong><br>
-        University of Bologna, Current
-      </p>
-      <h6>Courses of Interest:</h6>
-      <ul>
-        <li>Machine Learning for Bioinformatics</li>
-        <p style="margin-left: 0.5rem">
-          Explores supervised and unsupervised learning techniques applied to biological data, including DNA sequence classification and functional annotation.
-        </p>
-        <li>High-Throughput Sequencing Data Analysis</li>
-        <p style="margin-left: 0.5rem">
-          Focuses on the analysis of next-generation sequencing data, including transcriptomics and epigenomics, using advanced computational tools.
-        </p>
-        <li>Structural Bioinformatics</li>
-        <p style="margin-left: 0.5rem">
-          Studies the computational modeling and analysis of biomolecular structures to understand protein-ligand interactions and drug design.
-        </p>
-        <li>Deep Learning in Genomics</li>
-        <p style="margin-left: 0.5rem">
-          Covers the application of neural networks and transformer architectures in the analysis of genomic sequences and single-cell data.
-        </p>
-        <li>Multi-Omics Data Integration</li>
-        <p style="margin-left: 0.5rem">
-          Focuses on integrating genomics, transcriptomics, and proteomics data to create holistic models of biological systems.
-        </p>
-        <li>Statistical Models for Biology</li>
-        <p style="margin-left: 0.5rem">
-          Delves into statistical inference and Bayesian modeling applied to biological datasets, enabling better predictions and insights.
-        </p>
-      </ul>
-
-      <p>
-        <strong>B.Sc. in Cellular and Molecular Biology</strong><br>
-        University of Damghan, GPA: 17.87/20
-      </p>
-      <h6>Courses of Interest:</h6>
-      <ul>
-        <li>Bioinformatics</li>
-        <p style="margin-left: 0.5rem">
-          Introduced me to computational approaches for biological problems, including sequence alignment, phylogenetics, and protein structure prediction. I learned to use tools like Biopython and MEGA11 for data analysis.
-        </p>
-        <li>Genetics</li>
-        <p style="margin-left: 0.5rem">
-          Focused on the principles of heredity, molecular genetics, and genomic studies. This course solidified my interest in DNA sequencing and classification.
-        </p>
-        <li>Biostatistics</li>
-        <p style="margin-left: 0.5rem">
-          Covered statistical methods for biological data analysis, including hypothesis testing, regression analysis, and data visualization, which are crucial for bioinformatics research.
-        </p>
-        <li>Molecular Biology</li>
-        <p style="margin-left: 0.5rem">
-          Studied the structure and function of macromolecules, emphasizing gene expression and regulation, which formed the foundation for understanding computational genomics.
-        </p>
-        <li>Programming for Bioinformatics</li>
-        <p style="margin-left: 0.5rem">
-          Learned Python programming with a focus on biological data, including sequence manipulation, pattern matching, and visualization.
-        </p>
-      </ul>
-    
-
-      <h6>Other Certificates:</h6>
-      <ul>
+      <div class="education-item">
+        <h3>M.Sc. in Bioinformatics</h3>
+        <p><strong>University of Bologna</strong> | Current</p>
+        <h4>Courses of Interest:</h4>
         <ul>
           <li>
-            <a
-              href="https://courses.edx.org/certificates"
-              >Using Python for Research</a
-            >
-            from EdX (Harvard Learning Education), Issued Oct 2024
+            <strong>Machine Learning for Bioinformatics:</strong> Explores supervised and unsupervised learning techniques applied to biological data, including DNA sequence classification and functional annotation.
           </li>
           <li>
-            <a
-              href="https://coursera.org/verify/NSLZT3CHADLX"
-              >Generative AI with Large Language Models</a
-            >
-            from DeepLearning.AI and Amazon Web Services, Issued Apr 2024
+            <strong>High-Throughput Sequencing Data Analysis:</strong> Focuses on the analysis of next-generation sequencing data, including transcriptomics and epigenomics, using advanced computational tools.
           </li>
           <li>
-            <a
-              href="https://coursera.org/share/9e4fd841a52116e85c628650a6f2d0e9"
-              >Python for Genomic Data Science</a
-            >
-            from Johns Hopkins University (Coursera)
+            <strong>Structural Bioinformatics:</strong> Studies the computational modeling and analysis of biomolecular structures to understand protein-ligand interactions and drug design.
+          </li>
+          <li>
+            <strong>Deep Learning in Genomics:</strong> Covers the application of neural networks and transformer architectures in the analysis of genomic sequences and single-cell data.
+          </li>
+          <li>
+            <strong>Multi-Omics Data Integration:</strong> Focuses on integrating genomics, transcriptomics, and proteomics data to create holistic models of biological systems.
+          </li>
+          <li>
+            <strong>Statistical Models for Biology:</strong> Delves into statistical inference and Bayesian modeling applied to biological datasets, enabling better predictions and insights.
           </li>
         </ul>
-        <!-- <li>
-          <a
-            href="https://credsverse.com/credentials/abae407d-dab1-4892-911c-78296edda24e?recipient=true"
-            >Artificial Intelligence in Clinical Practice</a
-          >
-          from Iran Elites Network
-        </li> -->
+      </div>
+
+      <div class="education-item">
+        <h3>B.Sc. in Cellular and Molecular Biology</h3>
+        <p><strong>University of Damghan</strong> | GPA: 17.87/20</p>
+        <h4>Courses of Interest:</h4>
+        <ul>
+          <li>
+            <strong>Bioinformatics:</strong> Introduced computational approaches for biological problems, including sequence alignment, phylogenetics, and protein structure prediction.
+          </li>
+          <li>
+            <strong>Genetics:</strong> Focused on the principles of heredity, molecular genetics, and genomic studies, solidifying my interest in DNA sequencing and classification.
+          </li>
+          <li>
+            <strong>Biostatistics:</strong> Covered statistical methods for biological data analysis, including hypothesis testing and regression analysis.
+          </li>
+          <li>
+            <strong>Molecular Biology:</strong> Studied the structure and function of macromolecules, emphasizing gene expression and regulation.
+          </li>
+          <li>
+            <strong>Programming for Bioinformatics:</strong> Learned Python programming with a focus on biological data, including sequence manipulation and visualization.
+          </li>
+        </ul>
+      </div>
+
+      <h4>Other Certificates:</h4>
+      <ul>
+        <li>
+          <a href="https://courses.edx.org/certificates">Using Python for Research</a> from EdX (Harvard Learning Education), Issued Oct 2024
+        </li>
+        <li>
+          <a href="https://coursera.org/verify/NSLZT3CHADLX">Generative AI with Large Language Models</a> from DeepLearning.AI and Amazon Web Services, Issued Apr 2024
+        </li>
+        <li>
+          <a href="https://coursera.org/share/9e4fd841a52116e85c628650a6f2d0e9">Python for Genomic Data Science</a> from Johns Hopkins University (Coursera)
+        </li>
+      </ul>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="container fade-in">
+      <h2>Projects</h2>
+      <ul>
+        <li><a href="#">Bioinformatics ML approach for KCNB1 Variants (GitHub Repo)</a></li>
+        <li><a href="#">Predictive Modeling of Signal Peptides in Protein Sequences (GitHub Repo)</a></li>
+        <li><a href="#">Evaluate DNA methylation based on infinium technology of Illumina array chip (GitHub Repo)</a></li>
+        <li><a href="#">DNA Sequence Classification for Predicting Breast Cancer (GitHub Repo)</a></li>
+      </ul>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="container fade-in">
+      <h2>Skills</h2>
+      <ul>
+        <li><strong>Theory:</strong> Deep Learning, Transformers in Genomics, Generative Models, Statistical Learning, and Bioinformatics Algorithms.</li>
+        <li><strong>Programming Languages:</strong> Python, R, JavaScript, PHP, and SQL.</li>
+        <li><strong>Frameworks and Libraries:</strong> TensorFlow, PyTorch, Biopython, NumPy, Pandas, Scikit-learn, and Matplotlib.</li>
+        <li><strong>Tools:</strong> Jupyter Notebook, PyCharm, Git, MEGA11, EndNote, and Adobe Photoshop.</li>
+        <li><strong>Techniques:</strong> Sequence Alignment, DNA Classification, Single-Cell Data Analysis, Domain Adaptation, Graph Neural Networks, and Bayesian Modeling.</li>
+        <li><strong>Methodologies:</strong> Agile development, Data-Driven Research, Multi-Omics Integration, and Large Language Models (LLMs).</li>
       </ul>
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="container">
+    <section id="experience" class="container fade-in">
       <h2>Experience</h2>
-      <h5>Research Experience</h5>
-      <ul>
-        
-        
-        <li class="container bg-dark" style="margin-bottom: 0.5rem">
-          Research in <strong> Applications of Python Programming in Bioinformatics (Use of Biopython)</strong>
-          .
-    
-          <p style="padding-top: 0.5rem; padding-left: 1rem">
-            I had the opportunity to introduce many ideas and objectives to
-            Published in <strong>Journal of Ghin</strong>.
-            <br />
-            I was greatly supported by the team and had a great experience for
-            writing my paper. which highlighted the powerful role of Python in simplifying 
-            complex bioinformatics tasks like sequence alignment and genomic analysis.
-            This experience deepened my appreciation for computational tools and inspired me to 
-            explore new ways of integrating programming into biological research.
-            Presented at the University of Damghan conference, focusing on using Biopython for sequence alignment and analysis.
-          </p>
-        </li>
+      
+      <!-- Research Experience -->
+      <div class="experience-section">
+        <h3>Research Experience</h3>
+        <div class="row">
+          <div class="col-md-12 mb-4">
+            <div class="bg-dark">
+              <h4>Applications of Python Programming in Bioinformatics</h4>
+              <p class="experience-meta">University of Damghan | Published in Journal of Ghin</p>
+              <p>
+                Led research on leveraging Python and Biopython for complex bioinformatics tasks. 
+                Presented findings at the University of Damghan conference, focusing on sequence 
+                alignment and genomic analysis. This work highlighted the powerful role of Python 
+                in simplifying complex bioinformatics workflows.
+              </p>
+            </div>
+          </div>
 
-        <li class="container bg-dark" style="margin-bottom: 0.5rem">
-          Research in <strong> Cancer Cell Cycle in Breast Cancer and Testicular Cancer</strong>
-          .
-    
-          <p style="padding-top: 0.5rem; padding-left: 1rem">
-            I had the opportunity to introduce many ideas and objectives to
-            Published in <strong>Journal of Ghin</strong>.
-            <br />
-            I had the privilege of working on a paper titled “Cancer Cell Cycle in Breast Cancer and Testicular Cancer,”
-            where I explored the mechanisms of cell cycle regulation in these cancers. This experience deepened my understanding of
-            cancer biology and strengthened my passion for contributing to advancements in cancer research and treatment.
-          </p>
-        </li>
+          <div class="col-md-12 mb-4">
+            <div class="bg-dark">
+              <h4>Cancer Cell Cycle Research</h4>
+              <p class="experience-meta">Published in Journal of Ghin</p>
+              <p>
+                Led research on "Cancer Cell Cycle in Breast Cancer and Testicular Cancer," 
+                exploring mechanisms of cell cycle regulation. This work deepened understanding 
+                of cancer biology and contributed to advancements in cancer research and treatment.
+              </p>
+            </div>
+          </div>
 
-        <li class="container bg-dark" style="margin-bottom: 0.5rem">
-          Research in <strong> Targeted drug delivery for cancer treatment</strong>
-          .
-    
-          <p style="padding-top: 0.5rem; padding-left: 1rem">
-            I had the opportunity to introduce many ideas and objectives to
-            Published in <strong>Journal of Ghin</strong>.
-            <br />
-            I worked on a paper titled “Targeted Drug Delivery for Cancer Treatment,”
-            where I explored innovative approaches to improve the precision and efficiency
-            of drug delivery systems. This project enhanced my understanding of targeted therapies and 
-            reinforced my passion for contributing to research that can directly impact patient care and treatment outcomes.
-          </p>
-        </li>
-      </ul>
-    
-
-      <h5>Teaching Experience</h5>
-      <div class="accordion" id="teachingExperienceAccordion">
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingZero">
-            <button
-              class="accordion-button collapsed custom-accordion-button"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseZero"
-              aria-expanded="false"
-              aria-controls="collapseZero"
-            >
-              EB101:Element of Bioinformatics,
-            </button>
-          </h2>
-
-          <div
-            id="collapseZero"
-            class="accordion-collapse collapse"
-            aria-labelledby="headingZero"
-            data-bs-parent="#teachingExperienceAccordion"
-          >
-            <div class="accordion-body custom-accordion-body">
-              - Taught introductory bioinformatics courses for the association of the biology department at Damghan University.<br />
-              - Conducted Python programming workshops tailored to bioinformatics applications.<br />  
-              - Trained students on advanced sequence alignment methods using Biopython for genomic data analysis.<br /> 
+          <div class="col-md-12 mb-4">
+            <div class="bg-dark">
+              <h4>Targeted Drug Delivery Systems</h4>
+              <p class="experience-meta">Published in Journal of Ghin</p>
+              <p>
+                Conducted research on precision drug delivery systems for cancer treatment, 
+                focusing on innovative approaches to improve efficiency. This project enhanced 
+                understanding of targeted therapies and their impact on patient care outcomes.
+              </p>
             </div>
           </div>
         </div>
       </div>
-    
-      <h5>Industrial Experience</h5>
-      <ul>
-        <li>SEO Manager, SBP Company (Safa Bazar Pars), Tehran, Iran</li>
-        <p>
-          Led SEO strategies to optimize the company’s website, resulting in increased web traffic and sales. Modernized sales and marketing processes by transitioning customers
-          from social media to the website using digital marketing. Oversaw the creation and organization of the company website to enhance its structure and user experience.
-        </p>
-      
-        <li>Webmaster & CEO of Marketing, Karaphile (Biotechnological Startup), Tehran, Iran</li>
-        <p>
-          Managed and organized company websites (Pladiumshop.com & Mishakala.com), ensuring they met business goals. Directed the marketing team to enhance brand presence
-          and customer engagement. Negotiated contracts with laboratory kit production companies to expand the product range.
-        </p>
-      
-        <li>Web Designing & Web Developing, BIOINFORMATIC TECH Company (OmicsCo), Tehran, Iran</li>
-        <p>
-          Designed and developed the company’s website with integrated bioinformatics tools and resources. Implemented digital marketing strategies to increase visibility and promote services.
-        </p>
-      
-        <li>Freelancer, Programmer & SEO Analyzer</li>
-        <p>
-          Developed customized software solutions using Python and R programming. Provided SEO analysis and web development services to enhance clients
-          online presence and search engine rankings.
-        </p>
-      </ul>
+
+      <!-- Teaching Experience -->
+      <div class="experience-section">
+        <h3>Teaching Experience</h3>
+        <div class="row">
+          <div class="col-md-12 mb-4">
+            <div class="bg-dark">
+              <h4>EB101: Elements of Bioinformatics</h4>
+              <p class="experience-meta">Damghan University | Teaching Assistant</p>
+              <ul class="experience-list">
+                <li>Taught introductory bioinformatics courses for the biology department</li>
+                <li>Conducted hands-on Python programming workshops for bioinformatics applications</li>
+                <li>Trained students in advanced sequence alignment using Biopython</li>
+                <li>Mentored students in genomic data analysis techniques</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Industrial Experience -->
+      <div class="experience-section">
+        <h3>Industrial Experience</h3>
+        <div class="row">
+          <div class="col-md-6 mb-4">
+            <div class="bg-dark">
+              <h4>SEO Manager</h4>
+              <p class="experience-meta">SBP Company (Safa Bazar Pars) | Tehran, Iran</p>
+              <ul class="experience-list">
+                <li>Led SEO strategies resulting in significant web traffic growth</li>
+                <li>Modernized digital marketing processes</li>
+                <li>Optimized website structure and user experience</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-4">
+            <div class="bg-dark">
+              <h4>Webmaster & Marketing CEO</h4>
+              <p class="experience-meta">Karaphile (Biotechnology Startup) | Tehran, Iran</p>
+              <ul class="experience-list">
+                <li>Managed multiple e-commerce platforms</li>
+                <li>Led marketing team and brand development</li>
+                <li>Negotiated strategic partnerships with suppliers</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-4">
+            <div class="bg-dark">
+              <h4>Web Developer</h4>
+              <p class="experience-meta">BIOINFORMATIC TECH Company (OmicsCo) | Tehran, Iran</p>
+              <ul class="experience-list">
+                <li>Developed company website with integrated bioinformatics tools</li>
+                <li>Implemented digital marketing strategies</li>
+                <li>Enhanced online visibility and service promotion</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-4">
+            <div class="bg-dark">
+              <h4>Freelance Developer & SEO Specialist</h4>
+              <p class="experience-meta">Independent Contractor</p>
+              <ul class="experience-list">
+                <li>Developed custom software solutions using Python and R</li>
+                <li>Provided SEO optimization services</li>
+                <li>Enhanced clients' online presence and search rankings</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="container">
-      <h2>Contact</h2>
-      <p>
-        Feel free to reach out to me at
-        <a href="mailto:Erfanzohrabi.ez@gmail.com"
-          >Erfanzohrabi.ez@gmail.com</a
-        >
-        or
-        <a href="mailto:Erfan.Zohrabi@studio.unibo.it"
-          >Erfan.Zohrabi@studio.unibo.it</a
-        >.
+    <section id="contact" class="container text-center fade-in">
+      <h2>Get In Touch</h2>
+      <p class="contact-text">
+        Feel free to reach out if you're interested in collaborating or just want to say hi!
       </p>
       <div class="contact-links">
-        <a href="https://github.com/ErfanZohrabi">
-          <img
-            src="assets/github-mark-white.png"
-            alt="GitHub profile Link"
-            class="contact-pic-link"
-          />
+        <a href="mailto:Erfanzohrabi.ez@gmail.com" class="contact-link">
+          <i class="fas fa-envelope"></i>
+          Email
+        </a>
+        <a href="https://github.com/ErfanZohrabi" class="contact-link" target="_blank">
+          <i class="fab fa-github"></i>
           GitHub
         </a>
-
-        <a href="https://www.linkedin.com/in/erfan-zohrabi/">
-          <img
-            src="assets/In-White-96@2x.png"
-            alt="LinkedIn Profile Link"
-            class="contact-pic-link"
-          />
+        <a href="https://www.linkedin.com/in/erfan-zohrabi/" class="contact-link" target="_blank">
+          <i class="fab fa-linkedin"></i>
           LinkedIn
         </a>
       </div>
@@ -517,19 +515,22 @@
 
     <!-- Footer -->
     <footer>
-      <p>&copy; 2024 Erfan Zohrabi. All rights reserved.</p>
+      <div class="container">
+        <p>&copy; 2025 Erfan Zohrabi. Built with passion and code.</p>
+      </div>
     </footer>
 
-    <!-- Bootstrap JS and dependencies -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
+    <!-- Libraries JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tippy.js@6/dist/tippy.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
-    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
-    <!-- <script src="script.js"></script> -->
+    <!-- Custom JS -->
+    <script src="script.js"></script>
   </body>
 </html>
