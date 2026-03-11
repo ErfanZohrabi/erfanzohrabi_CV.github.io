@@ -1,536 +1,1474 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Erfan Zohrabi | Bioinformatics & AI Research</title>
-    
-    <!-- Meta Tags -->
-    <meta name="description" content="Erfan Zohrabi - Bioinformatics researcher specializing in AI applications in Biology & Computational Biology Research">
-    <meta name="keywords" content="bioinformatics, machine learning, AI, computational biology, deep learning">
-    <meta name="author" content="Erfan Zohrabi">
-    
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Libraries CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6/dist/tippy.css">
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Erfan Zohrabi | Bioinformatics & AI Research</title>
+  <meta name="description" content="MSc Bioinformatics at University of Bologna. Specializing in LLMs in Genomics, Deep Learning for Biology, Protein Language Models, and Multi-Omics Integration."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,600;1,300&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+  <style>
+    /* ─── RESET & BASE ───────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:       #060b14;
+      --bg2:      #0c1525;
+      --bg3:      #111e33;
+      --teal:     #00e5c8;
+      --teal2:    #00b8a0;
+      --amber:    #ffb347;
+      --red:      #ff6b6b;
+      --text:     #c8d8f0;
+      --muted:    #5a7295;
+      --border:   rgba(0,229,200,0.12);
+      --glow:     0 0 30px rgba(0,229,200,0.15);
+      --font-head: 'Syne', sans-serif;
+      --font-mono: 'IBM Plex Mono', monospace;
+      --font-body: 'Lora', serif;
+    }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.75;
+      cursor: none;
+    }
+    a { color: var(--teal); text-decoration: none; transition: color .2s; }
+    a:hover { color: var(--amber); }
+    img { max-width: 100%; display: block; }
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-  </head>
-  <body
-    data-bs-spy="scroll"
-    data-bs-target="#navbarNav"
-    data-bs-offset="50"
-    tabindex="0"
-  >
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
-      <div class="container">
-        <a class="navbar-brand" href="#">EZ</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#profile">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#resume">Education</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#experience">Experience</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#contact">Contact</a>
-            </li>
-          </ul>
+    /* ─── CUSTOM CURSOR ──────────────────────────────── */
+    .cursor-dot {
+      width: 8px; height: 8px;
+      background: var(--teal);
+      border-radius: 50%;
+      position: fixed; pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform .1s, background .2s;
+    }
+    .cursor-ring {
+      width: 36px; height: 36px;
+      border: 1.5px solid rgba(0,229,200,0.5);
+      border-radius: 50%;
+      position: fixed; pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: transform .15s ease, width .2s, height .2s, border-color .2s;
+    }
+
+    /* ─── SCROLL PROGRESS ────────────────────────────── */
+    #progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--teal), var(--amber));
+      z-index: 1000;
+      width: 0%;
+      transition: width .1s;
+    }
+
+    /* ─── SCROLLBAR ──────────────────────────────────── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--teal2); border-radius: 3px; }
+
+    /* ─── NAV ────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 900;
+      padding: 0 5vw;
+      height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(6,11,20,0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      transition: background .3s;
+    }
+    .nav-logo {
+      font-family: var(--font-mono);
+      font-size: 1.1rem;
+      color: var(--teal);
+      letter-spacing: .05em;
+    }
+    .nav-logo span { color: var(--amber); }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: .8rem;
+      color: var(--muted);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute; bottom: -4px; left: 0; right: 0;
+      height: 1px;
+      background: var(--teal);
+      transform: scaleX(0);
+      transition: transform .25s;
+    }
+    .nav-links a:hover { color: var(--teal); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+
+    /* ─── HERO ───────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 100px 5vw 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    #dna-canvas {
+      position: absolute; inset: 0;
+      opacity: .35;
+      pointer-events: none;
+    }
+    .hero-content { position: relative; z-index: 2; }
+    .hero-tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: .75rem;
+      color: var(--teal);
+      border: 1px solid var(--border);
+      padding: .35em 1em;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      animation: fadeUp .6s both;
+    }
+    .hero-name {
+      font-family: var(--font-head);
+      font-size: clamp(2.8rem, 5vw, 5rem);
+      font-weight: 800;
+      line-height: 1.05;
+      color: #e8f4ff;
+      margin-bottom: .75rem;
+      animation: fadeUp .6s .1s both;
+    }
+    .hero-name em {
+      font-style: normal;
+      color: var(--teal);
+    }
+    .hero-role {
+      font-family: var(--font-mono);
+      font-size: 1rem;
+      color: var(--muted);
+      min-height: 1.5em;
+      margin-bottom: 2rem;
+      animation: fadeUp .6s .2s both;
+    }
+    .hero-role .typed-cursor { color: var(--teal); animation: blink 1s infinite; }
+    .hero-bio {
+      font-size: .98rem;
+      color: var(--text);
+      max-width: 520px;
+      line-height: 1.85;
+      margin-bottom: 2.5rem;
+      animation: fadeUp .6s .3s both;
+    }
+    .hero-actions {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      animation: fadeUp .6s .4s both;
+    }
+    .btn {
+      font-family: var(--font-mono);
+      font-size: .82rem;
+      letter-spacing: .08em;
+      padding: .75em 1.75em;
+      border-radius: 2px;
+      cursor: none;
+      transition: all .25s;
+      display: inline-flex; align-items: center; gap: .5em;
+    }
+    .btn-primary {
+      background: var(--teal);
+      color: var(--bg);
+      font-weight: 600;
+    }
+    .btn-primary:hover {
+      background: var(--amber);
+      color: var(--bg);
+      box-shadow: 0 0 20px rgba(255,179,71,.35);
+    }
+    .btn-outline {
+      border: 1px solid var(--border);
+      color: var(--teal);
+      background: transparent;
+    }
+    .btn-outline:hover {
+      border-color: var(--teal);
+      background: rgba(0,229,200,.07);
+      color: var(--teal);
+    }
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative; z-index: 2;
+      animation: fadeUp .6s .35s both;
+    }
+    .avatar-wrap {
+      position: relative;
+      width: 220px; height: 220px;
+      margin-bottom: 2rem;
+    }
+    .avatar-wrap::before {
+      content: '';
+      position: absolute; inset: -12px;
+      border: 1px solid rgba(0,229,200,.25);
+      border-radius: 2px;
+      transform: rotate(6deg);
+    }
+    .avatar-wrap::after {
+      content: '';
+      position: absolute; inset: -22px;
+      border: 1px solid rgba(255,179,71,.12);
+      border-radius: 2px;
+      transform: rotate(-4deg);
+    }
+    .avatar-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      border-radius: 2px;
+      filter: grayscale(20%) contrast(1.05);
+    }
+    .avatar-fallback {
+      width: 100%; height: 100%;
+      background: var(--bg3);
+      border-radius: 2px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-head);
+      font-size: 4rem; font-weight: 800;
+      color: var(--teal);
+    }
+    .hero-stats {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      width: 100%;
+      max-width: 340px;
+    }
+    .hero-stat {
+      background: var(--bg2);
+      padding: 1.1rem .8rem;
+      text-align: center;
+    }
+    .hero-stat-num {
+      font-family: var(--font-head);
+      font-size: 1.7rem; font-weight: 800;
+      color: var(--teal);
+      display: block;
+    }
+    .hero-stat-label {
+      font-family: var(--font-mono);
+      font-size: .65rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+    }
+
+    /* ─── SECTION BASE ───────────────────────────────── */
+    section {
+      padding: 100px 5vw;
+      position: relative;
+    }
+    section:nth-child(even) { background: var(--bg2); }
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: .75rem;
+      color: var(--teal);
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      display: flex; align-items: center; gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1; max-width: 80px;
+      height: 1px;
+      background: var(--teal);
+      opacity: .4;
+    }
+    .section-title {
+      font-family: var(--font-head);
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 700;
+      color: #e8f4ff;
+      margin-bottom: 3rem;
+    }
+    .section-title em {
+      font-style: normal;
+      color: var(--teal);
+    }
+
+    /* ─── REVEAL ANIMATION ───────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── ABOUT / RESEARCH INTERESTS ────────────────── */
+    .interests-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1px;
+      background: var(--border);
+    }
+    .interest-card {
+      background: var(--bg);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: background .25s;
+    }
+    .interest-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--teal), transparent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .35s;
+    }
+    .interest-card:hover { background: var(--bg3); }
+    .interest-card:hover::before { transform: scaleX(1); }
+    .interest-icon {
+      font-size: 1.8rem;
+      margin-bottom: .75rem;
+      display: block;
+    }
+    .interest-title {
+      font-family: var(--font-head);
+      font-size: 1rem;
+      font-weight: 700;
+      color: #e8f4ff;
+      margin-bottom: .5rem;
+    }
+    .interest-text {
+      font-size: .88rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ─── PROJECTS ───────────────────────────────────── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.5rem;
+    }
+    .project-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 2rem;
+      position: relative;
+      transition: border-color .25s, transform .25s, box-shadow .25s;
+      overflow: hidden;
+    }
+    .project-card:hover {
+      border-color: rgba(0,229,200,.4);
+      transform: translateY(-4px);
+      box-shadow: var(--glow);
+    }
+    .project-number {
+      font-family: var(--font-mono);
+      font-size: .7rem;
+      color: var(--teal);
+      letter-spacing: .15em;
+      margin-bottom: 1rem;
+      opacity: .6;
+    }
+    .project-title {
+      font-family: var(--font-head);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #e8f4ff;
+      margin-bottom: .75rem;
+      line-height: 1.35;
+    }
+    .project-desc {
+      font-size: .88rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+    }
+    .project-tags {
+      display: flex; flex-wrap: wrap; gap: .4rem;
+      margin-bottom: 1.5rem;
+    }
+    .tag {
+      font-family: var(--font-mono);
+      font-size: .68rem;
+      padding: .2em .7em;
+      background: rgba(0,229,200,.07);
+      border: 1px solid rgba(0,229,200,.2);
+      color: var(--teal);
+      border-radius: 1px;
+      letter-spacing: .05em;
+    }
+    .project-link {
+      font-family: var(--font-mono);
+      font-size: .78rem;
+      color: var(--teal);
+      display: inline-flex; align-items: center; gap: .4rem;
+      border-bottom: 1px solid transparent;
+      transition: border-color .2s, color .2s;
+    }
+    .project-link:hover {
+      border-color: var(--amber);
+      color: var(--amber);
+    }
+    .project-link svg { transition: transform .2s; }
+    .project-link:hover svg { transform: translateX(4px); }
+
+    /* ─── SKILLS ─────────────────────────────────────── */
+    .skills-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .skill-category {
+      margin-bottom: 2.5rem;
+    }
+    .skill-cat-title {
+      font-family: var(--font-mono);
+      font-size: .75rem;
+      color: var(--teal);
+      text-transform: uppercase;
+      letter-spacing: .2em;
+      margin-bottom: 1.2rem;
+      display: flex; align-items: center; gap: .75rem;
+    }
+    .skill-cat-title::after {
+      content: ''; flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .skill-bar-wrap { margin-bottom: .85rem; }
+    .skill-bar-label {
+      display: flex; justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: .78rem;
+      color: var(--text);
+      margin-bottom: .3rem;
+    }
+    .skill-bar-label span { color: var(--muted); }
+    .skill-bar-track {
+      height: 3px;
+      background: var(--bg3);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .skill-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--teal), var(--teal2));
+      border-radius: 2px;
+      width: 0;
+      transition: width 1s cubic-bezier(.4,0,.2,1);
+    }
+    /* Right side: tech badges */
+    .tech-section { margin-bottom: 2.5rem; }
+    .tech-section-title {
+      font-family: var(--font-mono);
+      font-size: .72rem;
+      color: var(--amber);
+      text-transform: uppercase;
+      letter-spacing: .2em;
+      margin-bottom: 1rem;
+    }
+    .tech-pills {
+      display: flex; flex-wrap: wrap; gap: .5rem;
+    }
+    .tech-pill {
+      font-family: var(--font-mono);
+      font-size: .78rem;
+      padding: .35em 1em;
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 1px;
+      transition: border-color .2s, color .2s, background .2s;
+    }
+    .tech-pill:hover {
+      border-color: var(--teal);
+      color: var(--teal);
+      background: rgba(0,229,200,.05);
+    }
+
+    /* ─── EDUCATION & TIMELINE ───────────────────────── */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 8px; bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--teal), transparent);
+    }
+    .timeline-item {
+      position: relative;
+      padding-bottom: 3rem;
+    }
+    .timeline-dot {
+      position: absolute;
+      left: -2.35rem; top: 6px;
+      width: 10px; height: 10px;
+      border: 2px solid var(--teal);
+      border-radius: 50%;
+      background: var(--bg);
+    }
+    .timeline-dot::after {
+      content: '';
+      position: absolute; inset: 2px;
+      background: var(--teal);
+      border-radius: 50%;
+    }
+    .timeline-date {
+      font-family: var(--font-mono);
+      font-size: .72rem;
+      color: var(--teal);
+      letter-spacing: .1em;
+      margin-bottom: .4rem;
+    }
+    .timeline-title {
+      font-family: var(--font-head);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #e8f4ff;
+      margin-bottom: .25rem;
+    }
+    .timeline-sub {
+      font-family: var(--font-mono);
+      font-size: .82rem;
+      color: var(--amber);
+      margin-bottom: .75rem;
+    }
+    .timeline-body {
+      font-size: .9rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .timeline-body ul {
+      margin-top: .5rem;
+      padding-left: 1.2rem;
+    }
+    .timeline-body ul li { margin-bottom: .3rem; }
+
+    /* ─── PUBLICATIONS ───────────────────────────────── */
+    .pub-list { display: flex; flex-direction: column; gap: 1.5rem; }
+    .pub-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1.5rem;
+      align-items: start;
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      transition: border-color .25s, background .25s;
+    }
+    .pub-item:hover {
+      border-color: rgba(0,229,200,.35);
+      background: var(--bg3);
+    }
+    .pub-year {
+      font-family: var(--font-mono);
+      font-size: .8rem;
+      color: var(--teal);
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      letter-spacing: .1em;
+      opacity: .7;
+    }
+    .pub-title {
+      font-family: var(--font-head);
+      font-size: 1rem;
+      font-weight: 700;
+      color: #e8f4ff;
+      margin-bottom: .35rem;
+      line-height: 1.4;
+    }
+    .pub-journal {
+      font-size: .83rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    /* ─── CERTIFICATIONS ─────────────────────────────── */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+    .cert-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 1.4rem;
+      display: flex; align-items: flex-start; gap: 1rem;
+      transition: border-color .25s, transform .25s;
+    }
+    .cert-card:hover {
+      border-color: rgba(0,229,200,.4);
+      transform: translateY(-2px);
+    }
+    .cert-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      margin-top: .1rem;
+    }
+    .cert-issuer {
+      font-family: var(--font-mono);
+      font-size: .68rem;
+      color: var(--amber);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      margin-bottom: .2rem;
+    }
+    .cert-name {
+      font-family: var(--font-head);
+      font-size: .9rem;
+      font-weight: 700;
+      color: #e8f4ff;
+      line-height: 1.35;
+    }
+
+    /* ─── CONTACT ────────────────────────────────────── */
+    #contact {
+      text-align: center;
+      padding: 120px 5vw;
+      background: var(--bg);
+    }
+    .contact-tagline {
+      font-family: var(--font-mono);
+      font-size: .8rem;
+      color: var(--muted);
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .contact-heading {
+      font-family: var(--font-head);
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      font-weight: 800;
+      color: #e8f4ff;
+      margin-bottom: 1rem;
+    }
+    .contact-heading em { font-style: normal; color: var(--teal); }
+    .contact-sub {
+      color: var(--muted);
+      font-size: .95rem;
+      max-width: 500px;
+      margin: 0 auto 3rem;
+      line-height: 1.7;
+    }
+    .contact-links {
+      display: flex; justify-content: center;
+      flex-wrap: wrap; gap: 1rem;
+      margin-bottom: 4rem;
+    }
+    .contact-link {
+      font-family: var(--font-mono);
+      font-size: .82rem;
+      letter-spacing: .07em;
+      padding: .8em 2em;
+      border: 1px solid var(--border);
+      color: var(--text);
+      display: inline-flex; align-items: center; gap: .6em;
+      transition: all .25s;
+    }
+    .contact-link:hover {
+      border-color: var(--teal);
+      color: var(--teal);
+      background: rgba(0,229,200,.05);
+    }
+    .contact-email {
+      font-family: var(--font-mono);
+      font-size: 1rem;
+      color: var(--teal);
+      display: block;
+      margin-bottom: 4rem;
+      opacity: .8;
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────── */
+    footer {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 2rem 5vw;
+      display: flex; justify-content: space-between; align-items: center;
+      font-family: var(--font-mono);
+      font-size: .72rem;
+      color: var(--muted);
+    }
+    footer span { color: var(--teal); }
+
+    /* ─── DNA HELIX BG DECORATION ────────────────────── */
+    .helix-decor {
+      position: absolute; right: -2px; top: 0; bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom,
+        transparent,
+        rgba(0,229,200,.2) 30%,
+        rgba(0,229,200,.4) 50%,
+        rgba(0,229,200,.2) 70%,
+        transparent);
+    }
+
+    /* ─── ANIMATIONS ─────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0; }
+    }
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+    @keyframes pulse-ring {
+      0%   { transform: scale(.9); opacity: .5; }
+      100% { transform: scale(1.5); opacity: 0; }
+    }
+    .pulse-dot {
+      position: relative;
+      display: inline-block;
+      width: 8px; height: 8px;
+      margin-right: .5rem;
+    }
+    .pulse-dot::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: var(--teal);
+      border-radius: 50%;
+    }
+    .pulse-dot::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: var(--teal);
+      border-radius: 50%;
+      animation: pulse-ring 1.5s infinite;
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────────── */
+    @media (max-width: 900px) {
+      #hero { grid-template-columns: 1fr; padding-top: 120px; }
+      .hero-right { display: none; }
+      .skills-layout { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 600px) {
+      section { padding: 70px 5vw; }
+      .projects-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- PROGRESS BAR -->
+<div id="progress-bar"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">EZ<span>.</span>bio</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <canvas id="dna-canvas"></canvas>
+  <div class="hero-content">
+    <div class="hero-tag"><span class="pulse-dot"></span>Open to Research Collaboration</div>
+    <h1 class="hero-name">Erfan<br/><em>Zohrabi</em></h1>
+    <div class="hero-role" id="typed-text">&nbsp;<span class="typed-cursor">|</span></div>
+    <p class="hero-bio">
+      MSc Bioinformatics student at the University of Bologna, decoding the
+      language of life through machine learning, LLMs, and computational biology.
+      Bridging the gap between biology and AI — one sequence at a time.
+    </p>
+    <div class="hero-actions">
+      <a href="https://erfanzohrabi.github.io/assets/resume.pdf" class="btn btn-primary" target="_blank">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        Download CV
+      </a>
+      <a href="#projects" class="btn btn-outline">View Projects</a>
+      <a href="#contact" class="btn btn-outline">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="avatar-wrap">
+      <img
+        src="https://erfanzohrabi.github.io/assets/cropped.jpg"
+        alt="Erfan Zohrabi"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+      />
+      <div class="avatar-fallback" style="display:none;">EZ</div>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="hero-stat-num">5+</span>
+        <span class="hero-stat-label">Repos</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">3</span>
+        <span class="hero-stat-label">Papers</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">96%</span>
+        <span class="hero-stat-label">Best ML Acc.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT / RESEARCH INTERESTS -->
+<section id="about">
+  <div class="section-label">01 — Research Interests</div>
+  <h2 class="section-title">What I <em>Explore</em></h2>
+  <div class="interests-grid reveal">
+    <div class="interest-card">
+      <span class="interest-icon">🤖</span>
+      <div class="interest-title">LLMs in Genomics</div>
+      <p class="interest-text">Applying large language models to DNA sequence annotation, functional prediction, and uncovering latent patterns in large-scale biological datasets.</p>
+    </div>
+    <div class="interest-card">
+      <span class="interest-icon">🧬</span>
+      <div class="interest-title">Protein Language Models</div>
+      <p class="interest-text">Exploring ESM, ProtTrans and AlphaFold integration for protein structure prediction and understanding protein–ligand interactions.</p>
+    </div>
+    <div class="interest-card">
+      <span class="interest-icon">🔬</span>
+      <div class="interest-title">Deep Learning for Genomics</div>
+      <p class="interest-text">Building CNNs and Transformer architectures for DNA/RNA sequence classification, promoter analysis, and cancer genomics.</p>
+    </div>
+    <div class="interest-card">
+      <span class="interest-icon">🕸️</span>
+      <div class="interest-title">Graph Neural Networks</div>
+      <p class="interest-text">Applying GNNs to protein–protein interaction networks, molecular property prediction, and computational biology graphs (CS224W, Stanford).</p>
+    </div>
+    <div class="interest-card">
+      <span class="interest-icon">🧫</span>
+      <div class="interest-title">Multi-Omics Integration</div>
+      <p class="interest-text">Fusing genomics, transcriptomics, and proteomics data — including single-cell & spatial omics — to model biological systems holistically.</p>
+    </div>
+    <div class="interest-card">
+      <span class="interest-icon">⚗️</span>
+      <div class="interest-title">AI + CRISPR & Drug Discovery</div>
+      <p class="interest-text">Using AI to identify optimal gene-editing targets, improve CRISPR precision, and mine biomedical text for novel drug candidates.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">02 — Featured Work</div>
+  <h2 class="section-title">Recent <em>Projects</em></h2>
+  <div class="projects-grid">
+
+    <div class="project-card reveal">
+      <div class="project-number">// 001</div>
+      <div class="project-title">DNA Sequence Classification for Breast Cancer Prediction</div>
+      <p class="project-desc">Classified promoter DNA sequences using SVM, Neural Networks, KNN, AdaBoost, and Naive Bayes. Achieved 96.3% accuracy with RBF-kernel SVM, further optimized via Particle Swarm Optimization.</p>
+      <div class="project-tags">
+        <span class="tag">Python</span><span class="tag">SVM</span><span class="tag">Neural Networks</span>
+        <span class="tag">PSO</span><span class="tag">Jupyter</span><span class="tag">Cancer Genomics</span>
+      </div>
+      <a href="https://github.com/ErfanZohrabi/DNA-Sequence-Classification-for-Predicting-Breast-Cancer" class="project-link" target="_blank">
+        View on GitHub
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-number">// 002</div>
+      <div class="project-title">ML Model for KCNB1 Gene Variant Pathogenicity</div>
+      <p class="project-desc">Random Forest model trained on ClinVar data to predict KCNB1 gene variant pathogenicity. Benchmarked against PolyPhen and SIFT in-silico tools using LOOCV and comprehensive performance analysis.</p>
+      <div class="project-tags">
+        <span class="tag">Python</span><span class="tag">Random Forest</span><span class="tag">ClinVar</span>
+        <span class="tag">PolyPhen</span><span class="tag">SIFT</span><span class="tag">LOOCV</span>
+      </div>
+      <a href="https://github.com/ErfanZohrabi/Bioinformatics-ML-Model-for-KCNB1-Variants" class="project-link" target="_blank">
+        View on GitHub
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-number">// 003</div>
+      <div class="project-title">Signal Peptide Prediction in Protein Sequences</div>
+      <p class="project-desc">Predictive modeling pipeline for identifying signal peptides — critical for understanding protein secretion mechanisms and subcellular localization — using ML on protein sequence features.</p>
+      <div class="project-tags">
+        <span class="tag">Python</span><span class="tag">Protein ML</span><span class="tag">Signal Peptides</span>
+        <span class="tag">Sequence Analysis</span><span class="tag">Biopython</span>
+      </div>
+      <a href="https://github.com/ErfanZohrabi/Predictive-Modeling-of-Signal-Peptides-in-Protein-Sequences" class="project-link" target="_blank">
+        View on GitHub
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-number">// 004</div>
+      <div class="project-title">DNA Methylation Analysis — Illumina Infinium Arrays</div>
+      <p class="project-desc">Statistical analysis of fluorescent intensity data and methylation statuses from Illumina arrays in R. Covers beta values, M-values, probe characteristics, and differential methylation visualization.</p>
+      <div class="project-tags">
+        <span class="tag">R</span><span class="tag">Epigenomics</span><span class="tag">Illumina</span>
+        <span class="tag">Beta Values</span><span class="tag">Statistical Modeling</span>
+      </div>
+      <a href="https://github.com/ErfanZohrabi/Evaluate-DNA-methylation" class="project-link" target="_blank">
+        View on GitHub
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-number">// 005</div>
+      <div class="project-title">Profile HMM — Kunitz-type Protease Inhibitor Domain</div>
+      <p class="project-desc">Built a Profile Hidden Markov Model for the Kunitz-type protease inhibitor domain using HMMER and multiple sequence alignment — a rigorous structural bioinformatics pipeline.</p>
+      <div class="project-tags">
+        <span class="tag">Python</span><span class="tag">HMMER</span><span class="tag">MSA</span>
+        <span class="tag">pHMM</span><span class="tag">Domain Annotation</span>
+      </div>
+      <a href="https://github.com/ErfanZohrabi/lab-of-bioinformatics-project" class="project-link" target="_blank">
+        View on GitHub
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <div class="project-card reveal" style="border-style:dashed; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; min-height:240px;">
+      <div style="font-size:2rem; margin-bottom:.75rem; opacity:.4;">+</div>
+      <div class="project-title" style="color:var(--muted); font-size:.95rem;">More Projects</div>
+      <p class="project-desc" style="font-size:.82rem;">Exploring LLMs in genomics, deep reinforcement learning for sequence alignment, and generative models for protein design.</p>
+      <a href="https://github.com/ErfanZohrabi" class="project-link" target="_blank" style="margin-top:auto;">
+        View All on GitHub
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">03 — Technical Skills</div>
+  <h2 class="section-title">Tools &amp; <em>Expertise</em></h2>
+  <div class="skills-layout reveal">
+    <!-- Left: skill bars -->
+    <div>
+      <div class="skill-category">
+        <div class="skill-cat-title">AI / Deep Learning</div>
+        <div class="skill-bar-wrap">
+          <div class="skill-bar-label">Deep Learning (PyTorch / TF) <span>90%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="90"></div></div>
+        </div>
+        <div class="skill-bar-wrap">
+          <div class="skill-bar-label">Transformer Architectures <span>82%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="82"></div></div>
+        </div>
+        <div class="skill-bar-wrap">
+          <div class="skill-bar-label">LLMs / Generative Models <span>80%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div>
+        </div>
+        <div class="skill-bar-wrap">
+          <div class="skill-bar-label">Graph Neural Networks <span>75%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="75"></div></div>
         </div>
       </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header class="jumbotron text-center">
-      <div class="container">
-        <h1 class="main-heading fade-in">Hi, I'm Erfan Zohrabi</h1>
-        <p class="header-subtext fade-in">
-          Bioinformatics Enthusiast | Passionate About AI applications and deep learning in Biology &
-          Computational Biology Research
-        </p>
-      </div>
-    </header>
-
-    <!-- About Section -->
-    <section id="profile" class="container fade-in">
-      <h2>About Me</h2>
-      <div class="intro-section">
-        <div class="profile-image-container">
-          <img
-            src="assets/cropped.jpg"
-            alt="Profile Picture"
-            class="profile-pic"
-          />
+      <div class="skill-category">
+        <div class="skill-cat-title">Bioinformatics</div>
+        <div class="skill-bar-wrap">
+          <div class="skill-bar-label">Sequence Analysis / Biopython <span>92%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="92"></div></div>
         </div>
-        <div class="about-content">
-          <p>
-            I'm a Bioinformatics student at
-            <a
-              href="https://corsi.unibo.it/2cycle/Bioinformatics"
-              target="_blank"
-              >University of Bologna</a
-            >, with a deep passion for <strong>Bioinformatics Enthusiast | Passionate About AI and deep learning in Biology & Computational Biology Research</strong>. My journey is fueled by a relentless curiosity to decode the intricate patterns
-            and algorithms underlying biological data, combining mathematical reasoning with computational prowess to push the 
-            boundaries of bioinformatics and deep learning.
-          </p>
-          <p>
-            Recently, I've had the opportunity to work on exciting research
-            projects. You can see my research experience
-            <a href="#experience">here</a>.
-          </p>
-          <p>
-            <a href="assets/resume.pdf" class="btn btn-primary">Download Resume</a>
-          </p>
+        <div class="skill-bar-wrap">
+          <div class="skill-bar-label">Multi-Omics Integration <span>83%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="83"></div></div>
+        </div>
+        <div class="skill-bar-wrap">
+          <div class="skill-bar-label">Variant Analysis / ClinVar <span>78%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="78"></div></div>
+        </div>
+        <div class="skill-bar-wrap">
+          <div class="skill-bar-label">Structural Bioinformatics / HMM <span>74%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="74"></div></div>
         </div>
       </div>
-
-      <div class="research-interests fade-in">
-        <h3>Research Interests</h3>
-        <div class="row">
-          <div class="col-md-6 mb-4">
-            <div class="bg-dark">
-              <h4>Machine Learning in Bioinformatics</h4>
-              <p>
-                I am passionate about leveraging machine learning, particularly deep learning,
-                to address complex problems in bioinformatics and computational biology.
-                My focus lies in developing algorithms to analyze and interpret biological data
-                with high precision, contributing to advancements in genomics and personalized medicine.
-              </p>
-            </div>
-          </div>
-          <div class="col-md-6 mb-4">
-            <div class="bg-dark">
-              <h4>DNA Classification & Genomic Analysis</h4>
-              <p>
-                The classification and analysis of DNA sequences are central to my research.
-                I aim to design innovative machine learning models that can decode
-                patterns in genomic data, enhancing our understanding of genetic variations
-                and their implications for health and disease.
-              </p>
-            </div>
-          </div>
-          <div class="col-md-6 mb-4">
-            <div class="bg-dark">
-              <h4>PLM and AlphaFold</h4>
-              <p>
-                PLM (Protein Language Models) and AlphaFold represent cutting-edge advancements in protein structure prediction.
-                PLM utilizes deep learning techniques to understand protein sequences and their functions, while AlphaFold
-                leverages neural networks to predict protein folding with remarkable accuracy. My interest lies in exploring
-                how these technologies can be integrated into bioinformatics workflows to enhance our understanding of protein
-                interactions and their roles in biological processes.
-              </p>
-            </div>
-          </div>
-          <div class="col-md-6 mb-4">
-            <div class="bg-dark">
-              <h4>Integration of AI and CRISPR Technologies</h4>
-              <p>
-                Combining AI with CRISPR gene-editing technology is accelerating advancements in medicine and agriculture. 
-                AI aids in identifying optimal gene-editing targets, improving precision, and reducing off-target effects. 
-                This synergy enhances the development of therapies for genetic diseases and the creation of resilient, 
-                high-yield crops.
-              </p>
-            </div>
-          </div>
-          <div class="col-md-6 mb-4">
-            <div class="bg-dark">
-              <h4>High-Dimensional Data Analysis</h4>
-              <p>
-                Advancements in spatial omics and single-cell analysis are revolutionizing computational biology.
-                By applying deep learning to these high-resolution datasets, I aim to uncover patterns in cellular processes 
-                and disease mechanisms.
-              </p>
-            </div>
-          </div>
-          <div class="col-md-6 mb-4">
-            <div class="bg-dark">
-              <h4>Large Language Models in Genomics</h4>
-              <p>
-                Exploring the application of LLMs in genomic data processing fascinates me.
-                These models offer potential in areas like DNA sequence annotation, functional prediction,
-                and uncovering latent patterns in large-scale biological datasets.
-              </p>
-            </div>
-          </div>
+      <div class="skill-category">
+        <div class="skill-cat-title">Programming</div>
+        <div class="skill-bar-wrap">
+          <div class="skill-bar-label">Python <span>95%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="95"></div></div>
+        </div>
+        <div class="skill-bar-wrap">
+          <div class="skill-bar-label">R / RStudio <span>82%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="82"></div></div>
+        </div>
+        <div class="skill-bar-wrap">
+          <div class="skill-bar-label">JavaScript / Web <span>70%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="70"></div></div>
         </div>
       </div>
+    </div>
 
-      <!-- Additional Interests -->
-      <div class="additional-interests fade-in">
-        <h3>Additional Research Interests</h3>
-        <div class="bg-dark">
-          <ul>
-            <li>Deep reinforcement learning-based pairwise DNA sequence alignment</li>
-            <li>Graph Neural Networks in Computational Biology</li>
-            <li>Generative models for protein sequence modeling</li>
-            <li>Computational Neuroscience</li>
-            <li>Biomedical Text Mining for Drug Discovery</li>
-          </ul>
+    <!-- Right: tech badges -->
+    <div>
+      <div class="tech-section">
+        <div class="tech-section-title">🤖 AI & Machine Learning</div>
+        <div class="tech-pills">
+          <span class="tech-pill">PyTorch</span>
+          <span class="tech-pill">TensorFlow</span>
+          <span class="tech-pill">Scikit-learn</span>
+          <span class="tech-pill">🤗 Transformers</span>
+          <span class="tech-pill">Keras</span>
+          <span class="tech-pill">XGBoost</span>
+          <span class="tech-pill">NumPy</span>
+          <span class="tech-pill">Pandas</span>
+          <span class="tech-pill">Matplotlib</span>
+          <span class="tech-pill">Seaborn</span>
         </div>
       </div>
+      <div class="tech-section">
+        <div class="tech-section-title">🧬 Bioinformatics Tools</div>
+        <div class="tech-pills">
+          <span class="tech-pill">Biopython</span>
+          <span class="tech-pill">HMMER</span>
+          <span class="tech-pill">BLAST</span>
+          <span class="tech-pill">MEGA11</span>
+          <span class="tech-pill">Scanpy</span>
+          <span class="tech-pill">AlphaFold</span>
+          <span class="tech-pill">ESM / ProtTrans</span>
+          <span class="tech-pill">DNABERT</span>
+          <span class="tech-pill">Illumina Arrays</span>
+          <span class="tech-pill">ClinVar</span>
+          <span class="tech-pill">PolyPhen / SIFT</span>
+        </div>
+      </div>
+      <div class="tech-section">
+        <div class="tech-section-title">💻 Dev & Research Stack</div>
+        <div class="tech-pills">
+          <span class="tech-pill">Python</span>
+          <span class="tech-pill">R</span>
+          <span class="tech-pill">SQL</span>
+          <span class="tech-pill">JavaScript</span>
+          <span class="tech-pill">PHP</span>
+          <span class="tech-pill">Jupyter</span>
+          <span class="tech-pill">PyCharm</span>
+          <span class="tech-pill">RStudio</span>
+          <span class="tech-pill">Git</span>
+          <span class="tech-pill">LaTeX</span>
+          <span class="tech-pill">EndNote</span>
+        </div>
+      </div>
+      <div class="tech-section">
+        <div class="tech-section-title">📐 Methods & Algorithms</div>
+        <div class="tech-pills">
+          <span class="tech-pill">Transformers / Attention</span>
+          <span class="tech-pill">CNN / RNN / LSTM</span>
+          <span class="tech-pill">Random Forest</span>
+          <span class="tech-pill">SVM (RBF/Linear)</span>
+          <span class="tech-pill">PSO Optimization</span>
+          <span class="tech-pill">Bayesian Modeling</span>
+          <span class="tech-pill">LOOCV</span>
+          <span class="tech-pill">Graph Neural Nets</span>
+          <span class="tech-pill">VAE / GAN</span>
+          <span class="tech-pill">Seq Alignment (RL)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <!-- Recent Activities -->
-      <div class="recent-activities fade-in">
-        <h3>Recent Activities</h3>
-        <div class="row">
-          <div class="col-md-6 mb-4">
-            <div class="bg-dark">
-              <h4>Research Projects</h4>
-              <ul>
-                <li>
-                  <a href="https://github.com/ErfanZohrabi/Bioinformatics-ML-Model-for-KCNB1-Variants">
-                    Bioinformatics ML approach for KCNB1 Variants
-                  </a>
-                </li>
-                <li>
-                  <a href="https://github.com/ErfanZohrabi/Predictive-Modeling-of-Signal-Peptides-in-Protein-Sequences">
-                    Predictive Modeling of Signal Peptides
-                  </a>
-                </li>
-                <li>
-                  <a href="https://github.com/ErfanZohrabi/DNA-Sequence-Classification-for-Predicting-Breast-Cancer">
-                    DNA Sequence Classification for Cancer Prediction
-                  </a>
-                </li>
-              </ul>
-            </div>
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-label">04 — Academic Background</div>
+  <h2 class="section-title">Education &amp; <em>Certifications</em></h2>
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start;" class="reveal">
+    <div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2023 — Present</div>
+          <div class="timeline-title">MSc in Bioinformatics</div>
+          <div class="timeline-sub">University of Bologna, Italy</div>
+          <div class="timeline-body">
+            Focused on the intersection of AI and computational biology.
+            <ul>
+              <li>Machine Learning for Bioinformatics</li>
+              <li>Deep Learning in Genomics</li>
+              <li>High-Throughput Sequencing Data Analysis</li>
+              <li>Structural Bioinformatics</li>
+              <li>Multi-Omics Data Integration</li>
+              <li>Statistical Models for Biology</li>
+            </ul>
           </div>
-          <div class="col-md-6 mb-4">
-            <div class="bg-dark">
-              <h4>Academic Achievements</h4>
-              <ul>
-                <li>Completed Neuromatch Academy's Deep Learning Course</li>
-                <li>Studied CS236: Deep Generative Models at Stanford</li>
-                <li>Studied CS224W: Machine Learning with Graphs at Stanford</li>
-              </ul>
-            </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Graduated</div>
+          <div class="timeline-title">BSc in Cellular & Molecular Biology</div>
+          <div class="timeline-sub">University of Damghan | GPA: 17.87 / 20</div>
+          <div class="timeline-body">
+            Strong foundation in molecular biology, genetics, and biostatistics with a focus on computational approaches.
+            <ul>
+              <li>Bioinformatics & Sequence Alignment</li>
+              <li>Molecular Biology & Gene Expression</li>
+              <li>Biostatistics & Hypothesis Testing</li>
+              <li>Programming for Bioinformatics (Python)</li>
+            </ul>
           </div>
         </div>
       </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="container fade-in">
-      <h2>Portfolio</h2>
-      <p>Explore my projects and research work.</p>
-      <div class="row">
-        <div class="col-md-4 mb-4">
-          <div class="card">
-            <img src="assets/1-min.jpg" class="card-img-top" alt="Project 1" style="height: 200px; width: 100%; object-fit: cover;">
-            <div class="card-body">
-              <h5 class="card-title">
-                <a href="https://github.com/ErfanZohrabi/Evaluate-DNA-methylation" target="_blank">Evaluate DNA-methylation</a>
-              </h5>
-              <p class="card-text">Using R, we delve into various statistical methods to explore and analyze fluorescent intensity data, methylation statuses, and probe characteristics.</p>
-              <a href="https://github.com/ErfanZohrabi/Evaluate-DNA-methylation" class="btn btn-primary" target="_blank">View Project</a>
-            </div>
+    </div>
+    <div>
+      <div class="skill-cat-title" style="font-family:var(--font-mono); font-size:.72rem; color:var(--amber); text-transform:uppercase; letter-spacing:.2em; margin-bottom:1.2rem;">Online Certificates</div>
+      <div class="cert-grid" style="grid-template-columns:1fr;">
+        <div class="cert-card">
+          <div class="cert-icon">🤖</div>
+          <div>
+            <div class="cert-issuer">DeepLearning.AI × AWS — Apr 2024</div>
+            <div class="cert-name">Generative AI with Large Language Models</div>
           </div>
         </div>
-        <div class="col-md-4 mb-4">
-          <div class="card">
-            <img src="assets/2-min.jpg" class="card-img-top" alt="Project 2" style="height: 200px; width: 100%; object-fit: cover;">
-            <div class="card-body">
-              <h5 class="card-title">
-                <a href="https://github.com/ErfanZohrabi/lab-of-bioinformatics-project" target="_blank">Lab of bioinformatics project</a>
-              </h5>
-              <p class="card-text">The primary objective is to develop a Profile Hidden Markov Model (HMM) for the Kunitz-type protease inhibitor domain.</p>
-              <a href="https://github.com/ErfanZohrabi/lab-of-bioinformatics-project" class="btn btn-primary" target="_blank">View Project</a>
-            </div>
+        <div class="cert-card">
+          <div class="cert-icon">🧠</div>
+          <div>
+            <div class="cert-issuer">Neuromatch Academy</div>
+            <div class="cert-name">Deep Learning Course</div>
           </div>
         </div>
-        <div class="col-md-4 mb-4">
-          <div class="card">
-            <img src="assets/3-min.jpg" class="card-img-top" alt="Project 3" style="height: 200px; width: 100%; object-fit: cover;">
-            <div class="card-body">
-              <h5 class="card-title">
-                <a href="https://github.com/ErfanZohrabi/DNA-Sequence-Classification-for-Predicting-Breast-Cancer" target="_blank">DNA Sequence Classification for Predicting Breast Cancer</a>
-              </h5>
-              <p class="card-text">This project uses machine learning to predict signal peptides in protein sequences.</p>
-              <a href="https://github.com/ErfanZohrabi/DNA-Sequence-Classification-for-Predicting-Breast-Cancer" class="btn btn-primary" target="_blank">View Project</a>
-            </div>
+        <div class="cert-card">
+          <div class="cert-icon">🕸️</div>
+          <div>
+            <div class="cert-issuer">Stanford University</div>
+            <div class="cert-name">CS224W: Machine Learning with Graphs</div>
           </div>
         </div>
-        <!-- Add more project cards as needed -->
-      </div>
-    </section>
-
-    <!-- Resume Section -->
-    <section id="resume" class="container">
-      <h2>Education</h2>
-      
-      <div class="education-item">
-        <h3>M.Sc. in Bioinformatics</h3>
-        <p><strong>University of Bologna</strong> | Current</p>
-        <h4>Courses of Interest:</h4>
-        <ul>
-          <li>
-            <strong>Machine Learning for Bioinformatics:</strong> Explores supervised and unsupervised learning techniques applied to biological data, including DNA sequence classification and functional annotation.
-          </li>
-          <li>
-            <strong>High-Throughput Sequencing Data Analysis:</strong> Focuses on the analysis of next-generation sequencing data, including transcriptomics and epigenomics, using advanced computational tools.
-          </li>
-          <li>
-            <strong>Structural Bioinformatics:</strong> Studies the computational modeling and analysis of biomolecular structures to understand protein-ligand interactions and drug design.
-          </li>
-          <li>
-            <strong>Deep Learning in Genomics:</strong> Covers the application of neural networks and transformer architectures in the analysis of genomic sequences and single-cell data.
-          </li>
-          <li>
-            <strong>Multi-Omics Data Integration:</strong> Focuses on integrating genomics, transcriptomics, and proteomics data to create holistic models of biological systems.
-          </li>
-          <li>
-            <strong>Statistical Models for Biology:</strong> Delves into statistical inference and Bayesian modeling applied to biological datasets, enabling better predictions and insights.
-          </li>
-        </ul>
-      </div>
-
-      <div class="education-item">
-        <h3>B.Sc. in Cellular and Molecular Biology</h3>
-        <p><strong>University of Damghan</strong> | GPA: 17.87/20</p>
-        <h4>Courses of Interest:</h4>
-        <ul>
-          <li>
-            <strong>Bioinformatics:</strong> Introduced computational approaches for biological problems, including sequence alignment, phylogenetics, and protein structure prediction.
-          </li>
-          <li>
-            <strong>Genetics:</strong> Focused on the principles of heredity, molecular genetics, and genomic studies, solidifying my interest in DNA sequencing and classification.
-          </li>
-          <li>
-            <strong>Biostatistics:</strong> Covered statistical methods for biological data analysis, including hypothesis testing and regression analysis.
-          </li>
-          <li>
-            <strong>Molecular Biology:</strong> Studied the structure and function of macromolecules, emphasizing gene expression and regulation.
-          </li>
-          <li>
-            <strong>Programming for Bioinformatics:</strong> Learned Python programming with a focus on biological data, including sequence manipulation and visualization.
-          </li>
-        </ul>
-      </div>
-
-      <h4>Other Certificates:</h4>
-      <ul>
-        <li>
-          <a href="https://courses.edx.org/certificates">Using Python for Research</a> from EdX (Harvard Learning Education), Issued Oct 2024
-        </li>
-        <li>
-          <a href="https://coursera.org/verify/NSLZT3CHADLX">Generative AI with Large Language Models</a> from DeepLearning.AI and Amazon Web Services, Issued Apr 2024
-        </li>
-        <li>
-          <a href="https://coursera.org/share/9e4fd841a52116e85c628650a6f2d0e9">Python for Genomic Data Science</a> from Johns Hopkins University (Coursera)
-        </li>
-      </ul>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="container fade-in">
-      <h2>Projects</h2>
-      <ul>
-        <li><a href="#">Bioinformatics ML approach for KCNB1 Variants (GitHub Repo)</a></li>
-        <li><a href="#">Predictive Modeling of Signal Peptides in Protein Sequences (GitHub Repo)</a></li>
-        <li><a href="#">Evaluate DNA methylation based on infinium technology of Illumina array chip (GitHub Repo)</a></li>
-        <li><a href="#">DNA Sequence Classification for Predicting Breast Cancer (GitHub Repo)</a></li>
-      </ul>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="container fade-in">
-      <h2>Skills</h2>
-      <ul>
-        <li><strong>Theory:</strong> Deep Learning, Transformers in Genomics, Generative Models, Statistical Learning, and Bioinformatics Algorithms.</li>
-        <li><strong>Programming Languages:</strong> Python, R, JavaScript, PHP, and SQL.</li>
-        <li><strong>Frameworks and Libraries:</strong> TensorFlow, PyTorch, Biopython, NumPy, Pandas, Scikit-learn, and Matplotlib.</li>
-        <li><strong>Tools:</strong> Jupyter Notebook, PyCharm, Git, MEGA11, EndNote, and Adobe Photoshop.</li>
-        <li><strong>Techniques:</strong> Sequence Alignment, DNA Classification, Single-Cell Data Analysis, Domain Adaptation, Graph Neural Networks, and Bayesian Modeling.</li>
-        <li><strong>Methodologies:</strong> Agile development, Data-Driven Research, Multi-Omics Integration, and Large Language Models (LLMs).</li>
-      </ul>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="container fade-in">
-      <h2>Experience</h2>
-      
-      <!-- Research Experience -->
-      <div class="experience-section">
-        <h3>Research Experience</h3>
-        <div class="row">
-          <div class="col-md-12 mb-4">
-            <div class="bg-dark">
-              <h4>Applications of Python Programming in Bioinformatics</h4>
-              <p class="experience-meta">University of Damghan | Published in Journal of Ghin</p>
-              <p>
-                Led research on leveraging Python and Biopython for complex bioinformatics tasks. 
-                Presented findings at the University of Damghan conference, focusing on sequence 
-                alignment and genomic analysis. This work highlighted the powerful role of Python 
-                in simplifying complex bioinformatics workflows.
-              </p>
-            </div>
+        <div class="cert-card">
+          <div class="cert-icon">🎲</div>
+          <div>
+            <div class="cert-issuer">Stanford University</div>
+            <div class="cert-name">CS236: Deep Generative Models</div>
           </div>
-
-          <div class="col-md-12 mb-4">
-            <div class="bg-dark">
-              <h4>Cancer Cell Cycle Research</h4>
-              <p class="experience-meta">Published in Journal of Ghin</p>
-              <p>
-                Led research on "Cancer Cell Cycle in Breast Cancer and Testicular Cancer," 
-                exploring mechanisms of cell cycle regulation. This work deepened understanding 
-                of cancer biology and contributed to advancements in cancer research and treatment.
-              </p>
-            </div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon">🐍</div>
+          <div>
+            <div class="cert-issuer">Harvard × EdX — Oct 2024</div>
+            <div class="cert-name">Using Python for Research</div>
           </div>
-
-          <div class="col-md-12 mb-4">
-            <div class="bg-dark">
-              <h4>Targeted Drug Delivery Systems</h4>
-              <p class="experience-meta">Published in Journal of Ghin</p>
-              <p>
-                Conducted research on precision drug delivery systems for cancer treatment, 
-                focusing on innovative approaches to improve efficiency. This project enhanced 
-                understanding of targeted therapies and their impact on patient care outcomes.
-              </p>
-            </div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon">🧬</div>
+          <div>
+            <div class="cert-issuer">Johns Hopkins (Coursera)</div>
+            <div class="cert-name">Python for Genomic Data Science</div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
 
-      <!-- Teaching Experience -->
-      <div class="experience-section">
-        <h3>Teaching Experience</h3>
-        <div class="row">
-          <div class="col-md-12 mb-4">
-            <div class="bg-dark">
-              <h4>EB101: Elements of Bioinformatics</h4>
-              <p class="experience-meta">Damghan University | Teaching Assistant</p>
-              <ul class="experience-list">
-                <li>Taught introductory bioinformatics courses for the biology department</li>
-                <li>Conducted hands-on Python programming workshops for bioinformatics applications</li>
-                <li>Trained students in advanced sequence alignment using Biopython</li>
-                <li>Mentored students in genomic data analysis techniques</li>
-              </ul>
-            </div>
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">05 — Experience</div>
+  <h2 class="section-title">Research &amp; <em>Work</em></h2>
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem;" class="reveal">
+    <!-- Research & Teaching -->
+    <div>
+      <div class="skill-cat-title" style="font-family:var(--font-mono); font-size:.72rem; color:var(--teal); text-transform:uppercase; letter-spacing:.2em; margin-bottom:1.5rem;">Research & Teaching</div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">University of Damghan</div>
+          <div class="timeline-title">Applications of Python in Bioinformatics</div>
+          <div class="timeline-sub">Research Author — Published in Journal of Ghin</div>
+          <div class="timeline-body">Led research on leveraging Python and Biopython for complex bioinformatics tasks. Presented at the University of Damghan conference — focusing on sequence alignment and genomic analysis workflows.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Published — Journal of Ghin</div>
+          <div class="timeline-title">Cancer Cell Cycle Research</div>
+          <div class="timeline-sub">Research Author</div>
+          <div class="timeline-body">Led research on cancer cell cycle mechanisms in Breast Cancer and Testicular Cancer, exploring cell cycle regulation and contributing to cancer biology understanding.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Damghan University</div>
+          <div class="timeline-title">Teaching Assistant — EB101 Bioinformatics</div>
+          <div class="timeline-sub">Elements of Bioinformatics</div>
+          <div class="timeline-body">
+            <ul>
+              <li>Taught introductory bioinformatics for biology dept.</li>
+              <li>Ran Python programming workshops</li>
+              <li>Trained students in Biopython sequence alignment</li>
+              <li>Mentored in genomic data analysis</li>
+            </ul>
           </div>
         </div>
       </div>
-
-      <!-- Industrial Experience -->
-      <div class="experience-section">
-        <h3>Industrial Experience</h3>
-        <div class="row">
-          <div class="col-md-6 mb-4">
-            <div class="bg-dark">
-              <h4>SEO Manager</h4>
-              <p class="experience-meta">SBP Company (Safa Bazar Pars) | Tehran, Iran</p>
-              <ul class="experience-list">
-                <li>Led SEO strategies resulting in significant web traffic growth</li>
-                <li>Modernized digital marketing processes</li>
-                <li>Optimized website structure and user experience</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-md-6 mb-4">
-            <div class="bg-dark">
-              <h4>Webmaster & Marketing CEO</h4>
-              <p class="experience-meta">Karaphile (Biotechnology Startup) | Tehran, Iran</p>
-              <ul class="experience-list">
-                <li>Managed multiple e-commerce platforms</li>
-                <li>Led marketing team and brand development</li>
-                <li>Negotiated strategic partnerships with suppliers</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-md-6 mb-4">
-            <div class="bg-dark">
-              <h4>Web Developer</h4>
-              <p class="experience-meta">BIOINFORMATIC TECH Company (OmicsCo) | Tehran, Iran</p>
-              <ul class="experience-list">
-                <li>Developed company website with integrated bioinformatics tools</li>
-                <li>Implemented digital marketing strategies</li>
-                <li>Enhanced online visibility and service promotion</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-md-6 mb-4">
-            <div class="bg-dark">
-              <h4>Freelance Developer & SEO Specialist</h4>
-              <p class="experience-meta">Independent Contractor</p>
-              <ul class="experience-list">
-                <li>Developed custom software solutions using Python and R</li>
-                <li>Provided SEO optimization services</li>
-                <li>Enhanced clients' online presence and search rankings</li>
-              </ul>
-            </div>
-          </div>
+    </div>
+    <!-- Industry -->
+    <div>
+      <div class="skill-cat-title" style="font-family:var(--font-mono); font-size:.72rem; color:var(--amber); text-transform:uppercase; letter-spacing:.2em; margin-bottom:1.5rem;">Industry Experience</div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Tehran, Iran</div>
+          <div class="timeline-title">Web Developer</div>
+          <div class="timeline-sub">OmicsCo — Bioinformatic Tech Company</div>
+          <div class="timeline-body">Developed the company website with integrated bioinformatics tools. Implemented digital marketing strategies and enhanced online visibility for bioinformatics services.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Tehran, Iran</div>
+          <div class="timeline-title">Webmaster & Marketing CEO</div>
+          <div class="timeline-sub">Karaphile — Biotechnology Startup</div>
+          <div class="timeline-body">Managed multiple e-commerce platforms. Led marketing team, brand development, and negotiated strategic partnerships with suppliers for this biotech startup.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Tehran, Iran</div>
+          <div class="timeline-title">SEO Manager</div>
+          <div class="timeline-sub">SBP Company (Safa Bazar Pars)</div>
+          <div class="timeline-body">Led SEO strategies resulting in significant web traffic growth. Modernized digital marketing processes and optimized website structure and user experience.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Freelance</div>
+          <div class="timeline-title">Developer & SEO Specialist</div>
+          <div class="timeline-sub">Independent Contractor</div>
+          <div class="timeline-body">Developed custom software using Python and R. Provided SEO optimization services and enhanced clients' online presence.</div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="container text-center fade-in">
-      <h2>Get In Touch</h2>
-      <p class="contact-text">
-        Feel free to reach out if you're interested in collaborating or just want to say hi!
-      </p>
-      <div class="contact-links">
-        <a href="mailto:Erfanzohrabi.ez@gmail.com" class="contact-link">
-          <i class="fas fa-envelope"></i>
-          Email
-        </a>
-        <a href="https://github.com/ErfanZohrabi" class="contact-link" target="_blank">
-          <i class="fab fa-github"></i>
-          GitHub
-        </a>
-        <a href="https://www.linkedin.com/in/erfan-zohrabi/" class="contact-link" target="_blank">
-          <i class="fab fa-linkedin"></i>
-          LinkedIn
-        </a>
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="section-label">06 — Publications</div>
+  <h2 class="section-title">Academic <em>Publications</em></h2>
+  <div class="pub-list reveal">
+    <div class="pub-item">
+      <div class="pub-year">2022</div>
+      <div>
+        <div class="pub-title">Applications of Python Programming in Bioinformatics (Use of Biopython)</div>
+        <div class="pub-journal">Journal of Ghin — University of Damghan Conference</div>
       </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-      <div class="container">
-        <p>&copy; 2025 Erfan Zohrabi. Built with passion and code.</p>
+    </div>
+    <div class="pub-item">
+      <div class="pub-year">2021</div>
+      <div>
+        <div class="pub-title">Cancer Cell Cycle in Breast Cancer and Testicular Cancer</div>
+        <div class="pub-journal">Journal of Ghin</div>
       </div>
-    </footer>
+    </div>
+    <div class="pub-item">
+      <div class="pub-year">2020</div>
+      <div>
+        <div class="pub-title">Targeted Drug Delivery for Cancer Treatment</div>
+        <div class="pub-journal">Journal of Ghin</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Libraries JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/tippy.js@6/dist/tippy.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-tagline">Let's work together</div>
+  <h2 class="contact-heading reveal">Get in <em>Touch</em></h2>
+  <p class="contact-sub reveal">
+    Open to research collaborations, PhD opportunities, and conversations about AI in genomics, LLMs in biology, or any exciting project at the intersection of computation and life.
+  </p>
+  <a href="mailto:Erfanzohrabi.ez@gmail.com" class="contact-email reveal">Erfanzohrabi.ez@gmail.com</a>
+  <div class="contact-links reveal">
+    <a href="mailto:Erfanzohrabi.ez@gmail.com" class="contact-link">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+      Email
+    </a>
+    <a href="https://github.com/ErfanZohrabi" target="_blank" class="contact-link">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.49.5.092.682-.217.682-.483 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.744 0 .268.18.58.688.481C19.138 20.165 22 16.416 22 12c0-5.523-4.477-10-10-10z"/></svg>
+      GitHub
+    </a>
+    <a href="https://www.linkedin.com/in/erfan-zohrabi/" target="_blank" class="contact-link">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+      LinkedIn
+    </a>
+    <a href="https://erfanzohrabi.github.io/assets/resume.pdf" target="_blank" class="contact-link">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+      Resume PDF
+    </a>
+  </div>
+</section>
 
-    <!-- Custom JS -->
-    <script src="script.js"></script>
-  </body>
+<!-- FOOTER -->
+<footer>
+  <span>Erfan Zohrabi</span>
+  <div>Built with passion & code — <span>2025</span></div>
+  <div>University of Bologna</div>
+</footer>
+
+<script>
+/* ── CUSTOM CURSOR ─────────────────────────────────── */
+const dot  = document.getElementById('cursorDot');
+const ring = document.getElementById('cursorRing');
+let mx=0, my=0, rx=0, ry=0;
+document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; });
+function animCursor(){
+  dot.style.left  = mx+'px'; dot.style.top  = my+'px';
+  rx += (mx-rx)*.12; ry += (my-ry)*.12;
+  ring.style.left = rx+'px'; ring.style.top = ry+'px';
+  requestAnimationFrame(animCursor);
+}
+animCursor();
+document.querySelectorAll('a, button, .project-card, .interest-card').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    ring.style.width='56px'; ring.style.height='56px';
+    ring.style.borderColor='rgba(0,229,200,.7)';
+  });
+  el.addEventListener('mouseleave', () => {
+    ring.style.width='36px'; ring.style.height='36px';
+    ring.style.borderColor='rgba(0,229,200,.5)';
+  });
+});
+
+/* ── SCROLL PROGRESS ──────────────────────────────── */
+const bar = document.getElementById('progress-bar');
+window.addEventListener('scroll', () => {
+  const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+  bar.style.width = pct + '%';
+});
+
+/* ── TYPED TEXT ───────────────────────────────────── */
+const roles = [
+  'MSc Bioinformatics @ University of Bologna',
+  'Deep Learning for Genomics',
+  'LLMs in Biology Research',
+  'Protein Language Models',
+  'Multi-Omics Integration',
+  'AI + CRISPR Enthusiast',
+];
+let ri=0, ci=0, deleting=false;
+const typed = document.getElementById('typed-text');
+function typeLoop(){
+  const cur = roles[ri];
+  if(!deleting){
+    typed.innerHTML = cur.slice(0,++ci) + '<span class="typed-cursor">|</span>';
+    if(ci===cur.length){ deleting=true; setTimeout(typeLoop, 2200); return; }
+  } else {
+    typed.innerHTML = cur.slice(0,--ci) + '<span class="typed-cursor">|</span>';
+    if(ci===0){ deleting=false; ri=(ri+1)%roles.length; }
+  }
+  setTimeout(typeLoop, deleting?40:62);
+}
+typeLoop();
+
+/* ── SCROLL REVEAL ────────────────────────────────── */
+const reveals = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting){ e.target.classList.add('visible'); }
+  });
+}, { threshold:.1, rootMargin:'0px 0px -50px 0px' });
+reveals.forEach(r => obs.observe(r));
+
+/* ── SKILL BARS ───────────────────────────────────── */
+const barFills = document.querySelectorAll('.skill-bar-fill');
+const barObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      e.target.style.width = e.target.dataset.width + '%';
+      barObs.unobserve(e.target);
+    }
+  });
+}, { threshold:.3 });
+barFills.forEach(b => barObs.observe(b));
+
+/* ── DNA HELIX CANVAS ─────────────────────────────── */
+(function(){
+  const canvas = document.getElementById('dna-canvas');
+  const ctx    = canvas.getContext('2d');
+  function resize(){ canvas.width=canvas.offsetWidth; canvas.height=canvas.offsetHeight; }
+  resize(); window.addEventListener('resize', resize);
+
+  let t = 0;
+  function draw(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    const W=canvas.width, H=canvas.height;
+    const cx=W/2, amp=80, freq=0.025;
+    const numRungs=40;
+
+    for(let i=0;i<numRungs;i++){
+      const progress = i/numRungs;
+      const y = progress * H;
+      const phase = progress * Math.PI*8 + t;
+      const x1 = cx + Math.sin(phase)*amp;
+      const x2 = cx + Math.sin(phase+Math.PI)*amp;
+      const alpha = 0.1 + Math.abs(Math.sin(phase))*0.3;
+
+      // Rung
+      ctx.beginPath();
+      ctx.moveTo(x1,y); ctx.lineTo(x2,y);
+      ctx.strokeStyle = `rgba(0,229,200,${alpha*0.5})`;
+      ctx.lineWidth   = 1;
+      ctx.stroke();
+
+      // Nodes
+      ctx.beginPath();
+      ctx.arc(x1,y,2.5,0,Math.PI*2);
+      ctx.fillStyle=`rgba(0,229,200,${alpha})`;
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.arc(x2,y,2.5,0,Math.PI*2);
+      ctx.fillStyle=`rgba(255,179,71,${alpha*0.7})`;
+      ctx.fill();
+    }
+
+    // Backbone curves
+    ctx.beginPath();
+    for(let i=0;i<H;i++){
+      const phase = (i/H)*Math.PI*8+t;
+      const x = cx + Math.sin(phase)*amp;
+      if(i===0) ctx.moveTo(x,i); else ctx.lineTo(x,i);
+    }
+    ctx.strokeStyle='rgba(0,229,200,0.12)'; ctx.lineWidth=1.5; ctx.stroke();
+
+    ctx.beginPath();
+    for(let i=0;i<H;i++){
+      const phase = (i/H)*Math.PI*8+t+Math.PI;
+      const x = cx + Math.sin(phase)*amp;
+      if(i===0) ctx.moveTo(x,i); else ctx.lineTo(x,i);
+    }
+    ctx.strokeStyle='rgba(255,179,71,0.08)'; ctx.lineWidth=1.5; ctx.stroke();
+
+    t += 0.005;
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+</script>
+</body>
 </html>
